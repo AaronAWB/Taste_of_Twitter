@@ -1,0 +1,6 @@
+.container-fluid {
+    display: flex;
+    align-items: start;
+    justify-items: start;
+    border: 3px solid red;
+}
