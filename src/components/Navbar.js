@@ -5,15 +5,15 @@ const Navbar = () => {
         <nav className ='navbar navbar-light bg-light shadow-sm'>
             <ul className='nav'>
                 <li className='nav-item active'></li>
-                    <a href='#' className='nav-link active'>
+                    <a href='/' className='nav-link'>
                         Home
                     </a>
                 <li className='nav-item active'></li>
-                    <a href='#' className='nav-link'>
+                    <a href='/search' className='nav-link'>
                         Search
                     </a>
                 <li className='nav-item active'></li>
-                    <a href='#' className='nav-link'>
+                    <a href='tweets' className='nav-link'>
                         Tweets
                     </a>
             </ul>
