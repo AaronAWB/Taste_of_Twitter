@@ -1,7 +1,10 @@
+
+import '../styles/Search.css'
+
 const Search = () => {
     return (  
         <div className='container'>
-            <div className='card'>
+            <div className='card shadow-sm'>
                 <div className='card-body'>
                     <h5 className="card-title">Card title</h5>
                     <h6 className="card-subtitle mb-2 text-muted">Card subtitle</h6>
