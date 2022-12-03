@@ -1,17 +1,22 @@
 import React from 'react';
-import './Navbar.css';
 
 const Navbar = () => {
     return(
-        <nav className ='navbar navbar-nav bg-light shadow-sm'>
-            <div className='container-fluid d-flex justify-content-start'>
-                <a className='navbar-brand'>Logo</a>
-                <ul>
-                    <li className='nav-item'>Home</li>
-                    <li className='nav-item'>Search</li>
-                    <li className='nav-item'>Tweets</li>
-                </ul>
-            </div>
+        <nav className ='navbar navbar-light bg-light shadow-sm'>
+            <ul className='navbar-nav'>
+                <li className='nav-item active'></li>
+                    <a href='#' className='nav-link active'>
+                        Home
+                    </a>
+                <li className='nav-item active'></li>
+                    <a href='#' className='nav-link'>
+                        Search
+                    </a>
+                <li className='nav-item active'></li>
+                    <a href='#' className='nav-link'>
+                        Tweets
+                    </a>
+            </ul>
         </nav>
     );
 }
