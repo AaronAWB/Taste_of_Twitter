@@ -1,4 +1,4 @@
-const Tweets = () => {
+const Random = () => {
     return (
         <div className='container'>
             <h1>This is the Tweets display page.</h1>
@@ -13,4 +13,4 @@ const Tweets = () => {
     );
 }
  
-export default Tweets;
+export default Random;

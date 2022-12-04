@@ -3,7 +3,7 @@ import './styles/App.css'
 import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Search from './pages/Search';
-import Tweets from './pages/Tweets';
+import Random from './pages/Random';
 
 function App() {
   return (
@@ -14,7 +14,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}></Route>
             <Route path='/search' element={<Search />}></Route>
-            <Route path='/tweets' element={<Tweets />}></Route>
+            <Route path='/random' element={<Random />}></Route>
           </Routes>
         </div>
       </div>

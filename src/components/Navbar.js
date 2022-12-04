@@ -13,7 +13,7 @@ const Navbar = () => {
                         Search
                     </a>
                 <li className='nav-item active'></li>
-                    <a href='tweets' className='nav-link'>
+                    <a href='random' className='nav-link'>
                         Tweets
                     </a>
             </ul>
