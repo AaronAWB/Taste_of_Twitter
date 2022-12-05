@@ -1,15 +1,14 @@
-import Burton from '../assets/images/LeVar_Burton.png'
+import Headshot from '../components/Headshot';
+import Burton from '../assets/images/LeVar_Burton.png';
+import Ward from '../assets/images/Alie_Ward.png';
+
 
 const Random = () => {
     return (
         <div className='container mt-5'>
-            <img 
-                src={Burton}
-                className='img-thumbnail rounded-circle shadow-sm'
-                alt='LeVar Burton'
-                width='200px'
-                height='200px'
-            ></img>
+            <Headshot 
+                Source={Burton}
+            />
         </div>
     );
 }
