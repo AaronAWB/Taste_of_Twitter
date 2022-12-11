@@ -1,3 +1,6 @@
+import Retweet_Icon from '../assets/icons/retweet.png';
+import Like_Icon from '../assets/icons/like.png';
+
 const Tweet = () => {
     return(
         <div className='card shadow-sm'>
@@ -12,6 +15,28 @@ const Tweet = () => {
                 <p>
                     This is where an image would go if there was one.
                 </p>
+                <div className='container d-flex'>
+                    <img
+                        src={Retweet_Icon}
+                        alt='retweets'
+                        width='22px'
+                        height='22px'
+                    >
+                    </img>
+                    <p>
+                        Retweets
+                    </p>
+                    <img
+                        src={Like_Icon}
+                        alt='likes'
+                        width='22px'
+                        height='22px'
+                    >
+                    </img>
+                    <p>
+                        Likes
+                    </p>
+                </div>
             </div>
         </div>
     )
