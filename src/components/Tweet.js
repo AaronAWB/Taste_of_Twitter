@@ -15,7 +15,7 @@ const Tweet = () => {
                 <p>
                     This is where an image would go if there was one.
                 </p>
-                <div className='container d-flex'>
+                <div className='d-flex'>
                     <img
                         src={Retweet_Icon}
                         alt='retweets'
@@ -37,7 +37,7 @@ const Tweet = () => {
                         Likes
                     </p>
                 </div>
-            </div>
+            </div>``
         </div>
     )
 }
