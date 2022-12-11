@@ -4,7 +4,7 @@ import Tweet from '../components/Tweet';
 
 const Search = () => {
     return (
-        <div className='container content-container'> 
+        <div className='container content-container d-dlex flex-column justify-content-around'> 
             <div className='container search-container'>
                 <div className='card shadow-sm'>
                     <div className='card-body'>
