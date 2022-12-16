@@ -2,4 +2,7 @@ from flask import Flask
 from flask_restful import Api, Resource, reqparse
 
 app = Flask(__Name__)
-api = api(app)
+api = Api(app)
+
+if __name__ == "__main__":
+    app.run(debug=True)
