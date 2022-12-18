@@ -5,5 +5,10 @@ from keys import API_BEARER_TOKEN
 app = Flask(__name__)
 api = Api(app)
 
-if __name__ == "__main__":
+@app.route('/search', method=['GET'])
+def search_tweets():
+    
+
+
+if __name__ == '__main__':
     app.run(debug=True)
