@@ -1,6 +1,13 @@
 
 import '../styles/Search.css'
 import Tweet from '../components/Tweet';
+import Axios from 'axios'
+
+const makeSearchRequest = (path) => {
+    const searchResults = Axios.get(path);
+    console.log(searchResults)
+    return searchResults
+}
 
 const Search = () => {
     return (
@@ -17,7 +24,7 @@ const Search = () => {
                             className='form-control input-lg mb-3'
                         >
                         </input>
-                        <button className='btn btn-info form-control'>
+                        <button className='btn btn-info form-control' onClick={makeSearchRequest('http://127.0.01.:5000/api/tweets/search')}>
                             Search
                         </button>
                     </div>
