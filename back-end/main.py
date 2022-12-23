@@ -9,7 +9,7 @@ cors = CORS(app)
 
 @app.route('/api/tweets/search', methods=['GET'])
 def search_tweets():
-    return 'Hello World'
+    return https://swapi.dev/api/
 
 if __name__ == '__main__':
-    app.run()
+    app.run(debug=True)
