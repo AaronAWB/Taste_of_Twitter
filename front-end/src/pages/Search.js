@@ -9,7 +9,7 @@ const makeSearchRequest = (path) => {
     return searchResults
 }
 
-const Search = () => {``
+const Search = () => {
     return (
         <div className='container content-container'> 
             <div className='container search-container'>
