@@ -12,11 +12,11 @@ const makeSearchRequest = (path) => {
 const Search = () => {
     return (
         <div className='container content-container'> 
-            <div className='col'>
-                <div className='container row justify-content-md-center search-container'>
-                    <div className='card shadow-sm'>
+            <div className='col-6'>
+                <div className='container row justify-content-md-center search-container mt-5 mb-2'>
+                    <div className='card shadow-sm mt-2 mb-2'>
                         <div className='card-body'>
-                            <h3 className='card-title mb-3'>
+                            <h3 className='card-title mb-2'>
                                 Search
                             </h3>
                             <input
@@ -31,7 +31,7 @@ const Search = () => {
                         </div>
                     </div>
                 </div>
-                <div className ='container row justify-content-md-center results-container'>
+                <div className ='container row justify-content-md-center results-container mb-2'>
                     <Tweet />
                 </div>
             </div>
