@@ -33,6 +33,9 @@ const Search = () => {
                 </div>
                 <div className ='container row justify-content-md-center results-container mb-2'>
                     <Tweet />
+                    <Tweet />
+                    <Tweet />
+                    <Tweet />
                 </div>
             </div>
         </div> 

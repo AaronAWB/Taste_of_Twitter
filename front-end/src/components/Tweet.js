@@ -3,7 +3,7 @@ import Like_Icon from '../assets/icons/like.png';
 
 const Tweet = () => {
     return(
-        <div className='card shadow-sm'>
+        <div className='card shadow-sm mb-2 mt-2'>
             <div className ='card-body'>
                 <h5 className='card-title mb-3'>
                     Name <span className='text-muted'>@twitter-handle </span>
@@ -37,7 +37,7 @@ const Tweet = () => {
                         Likes
                     </p>
                 </div>
-            </div>``
+            </div>
         </div>
     )
 }
