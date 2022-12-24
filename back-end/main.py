@@ -4,7 +4,7 @@ from flask_restful import Api
 from flask_cors import CORS
 from keys import API_BEARER_TOKEN
 
-url = 'https://api.twitter.com/1.1/search/tweets.json?q=nasa'
+url = 'https://api.twitter.com/1.1/search/tweets.json?q=@levarburton'
 headers = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
