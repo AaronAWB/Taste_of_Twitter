@@ -7,6 +7,7 @@ from keys import API_BEARER_TOKEN
 url = 'https://api.twitter.com/1.1/search/tweets.json?q=nasa'
 headers = {
     'Content-Type': 'application/json',
+    'Accept': 'application/json',
     'Authorization': f'Bearer {API_BEARER_TOKEN}'
 }
 
