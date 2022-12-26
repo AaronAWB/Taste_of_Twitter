@@ -14,7 +14,7 @@ const Search = () => {
         <div className='container content-container'> 
             <div className='col-6'>
                 <div className='container row justify-content-md-center search-container mt-5 mb-2'>
-                    <div className='card shadow-sm mt-2 mb-2'>
+                    <div className='card shadow-sm bg-light mt-2 mb-2'>
                         <div className='card-body'>
                             <h3 className='card-title mb-2'>
                                 Search
