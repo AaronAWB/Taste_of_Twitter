@@ -22,13 +22,15 @@ const Home = () => {
                     </Link>
                 </div>
                 <div className='container row justify-content-md-center random-container'>
-                    <div className='card homepage-card shadow-sm bg-light mt-2 mb-2'>
-                            <div className='card-body'>
-                                <h3 className='card-title mb-2'>
-                                    Random Search
-                                </h3>
-                            </div>
-                    </div>
+                    <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div className='card homepage-card shadow-sm bg-light mt-2 mb-2'>
+                                <div className='card-body'>
+                                    <h3 className='card-title mb-2'>
+                                        Random Search
+                                    </h3>
+                                </div>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
