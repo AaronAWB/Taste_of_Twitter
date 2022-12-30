@@ -1,0 +1,27 @@
+.content-container {
+    display: flex;
+    justify-content: center;
+}
+
+.search-container {
+    display: flex;
+    justify-content: center;
+    border: 2px solid blue;
+}
+
+.results-container {
+    display: flex;
+    justify-content: center;
+    border: 2px solid green;
+}
+
+.card {
+    width: 600px;
+    margin: 100px;
+}
+
+.btn {
+    color: white !important;
+}
+
+

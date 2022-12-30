@@ -1,0 +1,10 @@
+.homepage-card {
+    transition: all 0.3s;
+    width: 600px !important;
+    cursor: pointer;
+}
+
+.homepage-card:hover {
+    transform: scale(1.02);
+}
+
