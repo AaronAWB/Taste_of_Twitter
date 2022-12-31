@@ -1,46 +1,59 @@
 import Headshot from '../components/Headshot';
 import Burton from '../assets/images/LeVar_Burton.png';
 import Ward from '../assets/images/Alie_Ward.png';
+import Search_Card from '../components/Search-Card';
+import Tweet from '../components/Tweet';
 
 
 const Random = () => {
     return (
-        <div className='container d-flex align-items-center'>
-            <div className='container mt-5'>
-                <Headshot
-                    Name='LeVar Burton' 
-                    Source={Burton}
-                    Alt='LeVar Burton'
-                />
+        <div className='container'>
+            <div className='container d-flex align-items-center'>
+                <div className='row'>
+                    <div className='container mt-5 col'>
+                        <Headshot
+                            Name='LeVar Burton' 
+                            Source={Burton}
+                            Alt='LeVar Burton'
+                        />
+                    </div>
+                    <div className='container mt-5 col'>
+                        <Headshot 
+                            Name='Alie Ward'
+                            Source={Ward}
+                            Alt='Alie Ward'
+                        />
+                    </div>
+                    <div className='container mt-5 col'>
+                        <Headshot
+                            Name='LeVar Burton' 
+                            Source={Burton}
+                            Alt='LeVar Burton'
+                        />
+                    </div>
+                    <div className='container mt-5 col'>
+                        <Headshot
+                            Name='LeVar Burton' 
+                            Source={Burton}
+                            Alt='LeVar Burton'
+                        />
+                    </div>
+                    <div className='container mt-5 col'>
+                        <Headshot
+                            Name='LeVar Burton'
+                            Source={Burton}
+                            Alt='LeVar Burton'
+                        />
+                    </div>
+                </div>
             </div>
-            <div className='container mt-5'>
-                <Headshot 
-                    Name='Alie Ward'
-                    Source={Ward}
-                    Alt='Alie Ward'
-                />
-            </div>
-            <div className='container mt-5'>
-                <Headshot
-                    Name='LeVar Burton' 
-                    Source={Burton}
-                    Alt='LeVar Burton'
-                />
-            </div>
-            <div className='container mt-5'>
-                <Headshot
-                    Name='LeVar Burton' 
-                    Source={Burton}
-                    Alt='LeVar Burton'
-                />
-            </div>
-            <div className='container mt-5'>
-                <Headshot
-                    Name='LeVar Burton' 
-                    Source={Burton}
-                    Alt='LeVar Burton'
-                />
-            </div>
+                    <div className='container d-flex align-items-center'>
+                        <Search_Card />
+                    </div>
+                    <div className='container d-flex align-items-center'>
+                        <Tweet />
+                    </div>
+                    
         </div>
     );
 }

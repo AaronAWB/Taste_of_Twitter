@@ -15,7 +15,7 @@ const Search_Card = () => {
                             className='form-control input-lg mb-3'
                         >
                         </input>
-                        <button className='btn btn-info form-control' onClick={() => {makeSearchRequest('http://127.0.01.:5000/api/tweets/search')}}>
+                        <button className='btn btn-info form-control'>
                             Search
                         </button>
                     </div>
