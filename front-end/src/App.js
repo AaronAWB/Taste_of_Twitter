@@ -1,26 +1,27 @@
-import useState from 'react'
+import { useState } from 'react'
 import Axios from 'axios'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import './styles/App.css'
 import Navbar from './components/Navbar';
+import Tweet from './components/Tweet';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Random from './pages/Random';
 
 function App() {
 
-  baseURL = 'http://127.0.0.1:5000/api/tweets/'
+  const baseURL = 'http://127.0.0.1:5000/api/tweets/'
 
-  const [searchParameter, setSearchParameter] = useState('');
   const [tweets, setTweets] = useState([]);
   
   const handleSearch = async (userSearchParameter) => {
-      const path = ''
-      if (userSearchParameter.startsWith('@')) {
-        path = baseURL+'handle_search'+userSearchParameter
-      } else {
-        path = baseURL+'keyword_search'+userSearchParameter
-      }
+      
+      const path = baseURL;
+    
+      userSearchParameter.startsWith('@') 
+      ? path = baseURL+'handle_search'+userSearchParameter 
+      : path = baseURL+'keyword_search'+userSearchParameter
+
       try {
           const response = await Axios.get(path);
           const tweetResults = response.data.statuses;
@@ -33,7 +34,7 @@ function App() {
   }
 
   const renderTweets = (tweets) => {
-    return tweets.map((tweet, i)=>(
+    return tweets.map((tweet, i) => (
         <Tweet
         key = {i}
         name={tweet.user.name}
@@ -48,7 +49,7 @@ function App() {
 
   const renderTweetImage = (tweet) => {
     if (tweet.hasOwnerProperty('extended_entities')) {
-      return (<img src={tweet.extended_entities.media[0]} alt={media} />);
+      return (<img src={tweet.extended_entities.media[0]}/>);
     }
     return <></>;
   }

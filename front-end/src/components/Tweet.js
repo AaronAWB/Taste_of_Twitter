@@ -2,18 +2,18 @@ import Retweet_Icon from '../assets/icons/retweet.png';
 import Like_Icon from '../assets/icons/like.png';
 
 const Tweet = ({name, handle, text, image, retweets, likes}) => {
+
     return(
         <div className='card shadow-sm mb-2 mt-2'>
             <div className ='card-body'>
                 <h5 className='card-title mb-3'>
-                    Name <span className='text-muted'>@twitter-handle </span>
+                    {name} <span className='text-muted'>@{handle} </span>
                 </h5>
                 <p className='mb-3'>
-                    Here is the text of the tweet. The text of the Tweet may go on for some time. 
-                    It can be fairly long. Like a paragraph of text. It should all fit here.
+                    {text}
                 </p>
                 <p>
-                    This is where an image would go if there was one.
+                    {image}
                 </p>
                 <div className='d-flex'>
                     <img
@@ -24,7 +24,7 @@ const Tweet = ({name, handle, text, image, retweets, likes}) => {
                     >
                     </img>
                     <p>
-                        Retweets
+                        {retweets}
                     </p>
                     <img
                         src={Like_Icon}
@@ -34,7 +34,7 @@ const Tweet = ({name, handle, text, image, retweets, likes}) => {
                     >
                     </img>
                     <p>
-                        Likes
+                        {likes}
                     </p>
                 </div>
             </div>

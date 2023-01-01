@@ -1,5 +1,5 @@
 import React from 'react'
-import useState from 'react'
+import { useState } from 'react'
 import '../styles/Search.css'
 
 const Search = ({handleSearch, renderTweets}) => {
@@ -23,8 +23,11 @@ const Search = ({handleSearch, renderTweets}) => {
                             <form onSubmit={handleSubmit}>
                                 <input
                                     type='text'
-                                    placeholder='Search by Name or Keyword...'
+                                    placeholder='Search by Twitter Handle or Keyword...'
                                     className='form-control input-lg mb-3'
+                                    onChange={(e) => setUserSearchInput(e.target.value)}
+                                    value={userSearchInput}
+                                    required
                                 >
                                 </input>
                             </form>
@@ -35,7 +38,7 @@ const Search = ({handleSearch, renderTweets}) => {
                     </div>
                 </div>
                 <div className ='container row justify-content-md-center results-container mb-2'>
-                    {renderTweets()}
+                    {renderTweets}
                 </div>
             </div>
         </div> 
