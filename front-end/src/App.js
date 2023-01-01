@@ -23,7 +23,25 @@ function App() {
           console.log(error)
       }
   }
-  
+
+  const renderTweets = (tweets) => {
+    return tweets.map((tweet, i)=>(
+        <Tweet
+        key = {i}
+        name={tweets.user.name}
+        handle={tweets.user.screen_name}         
+        text={tweets.text} 
+        image={renderTweetImage}
+        retweets={tweets.retweet_count}
+        favorites={tweet.favorite_count}
+        />
+    ));    
+  }
+
+  const renderTweetImage = () => {
+    if ()
+  }
+
   return (
     <Router>
       <div className='app'>
@@ -31,7 +49,7 @@ function App() {
         <div className='content'>
           <Routes>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/search' element={<Search tweets={tweets} searchRequest={handleSearchRequest}/>}></Route>
+            <Route path='/search' element={<Search renderTweets={renderTweets} searchRequest={handleSearchRequest}/>}></Route>
             <Route path='/random' element={<Random />}></Route>
           </Routes>
         </div>

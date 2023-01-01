@@ -1,23 +1,7 @@
 import React from 'react'
 import '../styles/Search.css'
-import Tweet from '../components/Tweet';
 
-
-const Search = ({tweets, name, handle, text, renderImage, retweets, favorites, searchRequest}) => {
-
-const renderTweets = () => {
-    return tweets.map((tweet, i)=>(
-        <Tweet
-        key = {i}
-        name={tweets.user.name}
-        handle={tweets.user.screen_name}         
-        text={tweets.text} 
-        image={renderImage}
-        retweets={tweets.retweet_count}
-        favorites={tweet.favorite_count}
-        />
-));    
-}
+const Search = ({searchRequest, renderTweets}) => {
 
     return (
         <div className='container content-container'> 
