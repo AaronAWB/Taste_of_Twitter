@@ -18,7 +18,7 @@ cors= CORS(app, resources={r'/api/*': {'origins:': '*'}})
 
 @app.route('/api/tweets/handle_search/<handle>', methods=['GET'])
 def search_tweets_handle(handle):
-    response = requests.get(url+'@'+handle, headers=headers).json()
+    response = requests.get(url+'from:'+handle, headers=headers).json()
     return response
 
 @app.route('/api/tweets/keyword_search/<keyword>', methods=['GET'])
@@ -28,7 +28,7 @@ def search_tweets_keyword(keyword):
 
 @app.route('/api/tweets/random/<handle>', methods=['GET'])
 def search_tweets_random(handle):
-    response = requests.get(url+'@'+handle, headers=headers).json()
+    response = requests.get(url+'from:'+handle, headers=headers).json()
     return response
 
 # @app.errorhandler(404)
