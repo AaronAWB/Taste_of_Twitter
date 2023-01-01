@@ -28,18 +28,21 @@ function App() {
     return tweets.map((tweet, i)=>(
         <Tweet
         key = {i}
-        name={tweets.user.name}
-        handle={tweets.user.screen_name}         
-        text={tweets.text} 
+        name={tweet.user.name}
+        handle={tweet.user.screen_name}         
+        text={tweet.text} 
         image={renderTweetImage}
-        retweets={tweets.retweet_count}
+        retweets={tweet.retweet_count}
         favorites={tweet.favorite_count}
         />
     ));    
   }
 
   const renderTweetImage = () => {
-    if ()
+    if (tweet.hasOwnerProperty('extended_entities')) {
+      return (<img src={tweet.extended_entities.media[0]} alt={media} />);
+    }
+    return <></>;
   }
 
   return (
