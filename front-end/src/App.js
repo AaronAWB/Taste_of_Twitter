@@ -15,7 +15,7 @@ function App() {
   const handleSearchRequest = async (path) => {
       try {
           const response = await Axios.get(path);
-          const tweetResults = response.data.statues;
+          const tweetResults = response.data.statuses;
           setTweets(tweetResults)
           console.log(tweetResults)
       }
