@@ -1,7 +1,15 @@
 import React from 'react'
+import useState from 'react'
 import '../styles/Search.css'
 
-const Search = ({searchRequest, renderTweets}) => {
+const Search = ({handleSearch, renderTweets}) => {
+
+    const [userSearchInput, setUserSearchInput] = useState('');
+    
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        handleSearch(userSearchInput);
+    };
 
     return (
         <div className='container content-container'> 
@@ -12,13 +20,15 @@ const Search = ({searchRequest, renderTweets}) => {
                             <h3 className='card-title mb-2'>
                                 Search
                             </h3>
-                            <input
-                                type='text'
-                                placeholder='Search by Name or Keyword...'
-                                className='form-control input-lg mb-3'
-                            >
-                            </input>
-                            <button className='btn btn-info form-control' onClick={() => {searchRequest('http://127.0.01.:5000//api/tweets/handle_search/levarburton')}}>
+                            <form onSubmit={handleSubmit}>
+                                <input
+                                    type='text'
+                                    placeholder='Search by Name or Keyword...'
+                                    className='form-control input-lg mb-3'
+                                >
+                                </input>
+                            </form>
+                            <button className='btn btn-info form-control' type='submit'>
                                 Search
                             </button>
                         </div>

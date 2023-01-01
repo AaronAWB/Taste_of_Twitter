@@ -9,10 +9,18 @@ import Random from './pages/Random';
 
 function App() {
 
-  const [keyword, setKeyword] = useState('');
+  baseURL = 'http://127.0.0.1:5000/api/tweets/'
+
+  const [searchParameter, setSearchParameter] = useState('');
   const [tweets, setTweets] = useState([]);
   
-  const handleSearchRequest = async (path) => {
+  const handleSearch = async (userSearchParameter) => {
+      const path = ''
+      if (userSearchParameter.startsWith('@')) {
+        path = baseURL+'handle_search'+userSearchParameter
+      } else {
+        path = baseURL+'keyword_search'+userSearchParameter
+      }
       try {
           const response = await Axios.get(path);
           const tweetResults = response.data.statuses;
@@ -38,7 +46,7 @@ function App() {
     ));    
   }
 
-  const renderTweetImage = () => {
+  const renderTweetImage = (tweet) => {
     if (tweet.hasOwnerProperty('extended_entities')) {
       return (<img src={tweet.extended_entities.media[0]} alt={media} />);
     }
@@ -52,7 +60,7 @@ function App() {
         <div className='content'>
           <Routes>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/search' element={<Search renderTweets={renderTweets} searchRequest={handleSearchRequest}/>}></Route>
+            <Route path='/search' element={<Search renderTweets={renderTweets} handleSearch={handleSearch}/>}></Route>
             <Route path='/random' element={<Random />}></Route>
           </Routes>
         </div>
