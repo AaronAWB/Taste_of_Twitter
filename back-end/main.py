@@ -26,6 +26,11 @@ def search_tweets(keyword):
     response = requests.get(url+keyword, headers=headers).json()
     return response
 
+@app.route('/api/tweets/random/<handle>', methods=['GET'])
+def search_tweets(handle):
+    response = requests.get(url+handle, headers=headers).json()
+    return response
+
 # @app.errorhandler(404)
 # def not_found():
 #     """Page not found."""
