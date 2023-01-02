@@ -41,11 +41,11 @@ const getProfileInfo = async (profile) => {
     const updatedProfiles = favoriteProfiles.map((profile) => {
         return(
             {
-                name: `${TweetResults.user.name}`,
-                handle: `${TweetResults.user.screen_name}`,
-                profile_picture: `${TweetResults.user.screen_name}`,
-                description: `${TweetResults.user.screen_name}`,
-                location: `${TweetResults.user.screen_name}`,
+                name: `${tweetResults.user.name}`,
+                handle: `${tweetResults.user.screen_name}`,
+                profile_picture: `${tweetResults.user.screen_name}`,
+                description: `${tweetResults.user.screen_name}`,
+                location: `${tweetResults.user.screen_name}`,
 
             }
         )
