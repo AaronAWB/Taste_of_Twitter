@@ -14,13 +14,13 @@ function App() {
 
   const [tweets, setTweets] = useState([]);
   
-  const handleSearch = async (userSearchParameter) => {
+  const getTweets = async (userSearch) => {
       
-      const path = baseURL;
+      let path = baseURL;
     
-      userSearchParameter.startsWith('@') 
-      ? path = baseURL+'handle_search'+userSearchParameter 
-      : path = baseURL+'keyword_search'+userSearchParameter
+      userSearch.startsWith('@') 
+      ? path = baseURL+'handle_search'+userSearch
+      : path = baseURL+'keyword_search'+userSearch
 
       try {
           const response = await Axios.get(path);
@@ -61,7 +61,7 @@ function App() {
         <div className='content'>
           <Routes>
             <Route path='/' element={<Home />}></Route>
-            <Route path='/search' element={<Search renderTweets={renderTweets} handleSearch={handleSearch}/>}></Route>
+            <Route path='/search' element={<Search renderTweets={renderTweets} getTweets={getTweets}/>}></Route>
             <Route path='/random' element={<Random />}></Route>
           </Routes>
         </div>

@@ -2,13 +2,13 @@ import React from 'react'
 import { useState } from 'react'
 import '../styles/Search.css'
 
-const Search = ({handleSearch, renderTweets}) => {
+const Search = ({getTweets, renderTweets}) => {
 
-    const [userSearchInput, setUserSearchInput] = useState('');
+    const [userSearch, setUserSearch] = useState('');
     
     const handleSubmit = (e) => {
         e.preventDefault();
-        handleSearch(userSearchInput);
+        getTweets(userSearch);
         renderTweets();
         console.log('Clicked!')
     };
@@ -27,15 +27,15 @@ const Search = ({handleSearch, renderTweets}) => {
                                     type='text'
                                     placeholder='Search by Twitter Handle or Keyword...'
                                     className='form-control input-lg mb-3'
-                                    onChange={(e) => setUserSearchInput(e.target.value)}
-                                    value={userSearchInput}
+                                    onChange={(e) => setUserSearch(e.target.value)}
+                                    value={userSearch}
                                     required
                                 >
                                 </input>
+                                <button className='btn btn-info form-control' type='submit'>
+                                    Search
+                                </button>
                             </form>
-                            <button className='btn btn-info form-control' type='submit'>
-                                Search
-                            </button>
                         </div>
                     </div>
                 </div>
