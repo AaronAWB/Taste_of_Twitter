@@ -19,8 +19,8 @@ function App() {
       let path = baseURL;
     
       userSearch.startsWith('@') 
-      ? path = baseURL+'handle_search'+userSearch
-      : path = baseURL+'keyword_search'+userSearch
+      ? path = baseURL+'handle_search/'+userSearch
+      : path = baseURL+'keyword_search/'+userSearch
 
       try {
           const response = await Axios.get(path);
