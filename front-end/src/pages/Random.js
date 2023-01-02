@@ -1,8 +1,60 @@
+import { useEffect } from 'react'
+
 import Headshot from '../components/Headshot';
 import Burton from '../assets/images/LeVar_Burton.png';
 import Ward from '../assets/images/Alie_Ward.png';
 import Search_Card from '../components/Search-Card';
 import Tweet from '../components/Tweet';
+
+const profiles = {
+    Levar_Burton: {
+        Handle: '@levarburton',
+        Profile_Picture: url,
+        Description: description,
+        Location: place,
+    },
+    Alie_Ward: {
+        Handle: '@alieward',
+        Profile_Picture: url,
+        Description: description,
+        Location: place,
+    },
+    Sounders: {
+        Handle: '@SoundersFC',
+        Profile_Picture: url,
+        Description: description,
+        Location: place,
+    },
+    Eric_Idle: {
+        Handle: '@Ericidle',
+        Profile_Picture: url,
+        Description: description,
+        Location: place,
+    },
+    Maria_Cantwell: {
+        Handle: '@SenatorCantwell',
+        Profile_Picture: url,
+        Description: description,
+        Location: place,
+    }
+
+
+}
+
+const getProfileInfo = async (profile) => {
+    
+    const path = `/api/tweets/random/${profile}`
+
+    try {
+        const response = await Axios.get(path);
+        const tweetResults = response.data.statuses;
+        const profilePicture = tweetResults.
+        console.log(tweetResults)
+    }
+    catch(error) {
+        console.log(error)
+    }
+  }
 
 
 const Random = () => {
@@ -13,21 +65,21 @@ const Random = () => {
                     <div className='container mt-5 col'>
                         <Headshot
                             Name='LeVar Burton' 
-                            Source={Burton}
+                            Source={getProfileInfo('@levarburton')}
                             Alt='LeVar Burton'
                         />
                     </div>
                     <div className='container mt-5 col'>
                         <Headshot 
                             Name='Alie Ward'
-                            Source={Ward}
+                            Source={getProfilePicture('@alieward')}
                             Alt='Alie Ward'
                         />
                     </div>
                     <div className='container mt-5 col'>
                         <Headshot
-                            Name='LeVar Burton' 
-                            Source={Burton}
+                            Name='Seattle Sounders FC' 
+                            Source={getProfilePicture('@SoundersFC')}
                             Alt='LeVar Burton'
                         />
                     </div>
