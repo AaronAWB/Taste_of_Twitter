@@ -1,10 +1,44 @@
-import { useEffect } from 'react'
+import { useState, useEffect } from 'react'
 
 import Headshot from '../components/Headshot';
 import Burton from '../assets/images/LeVar_Burton.png';
 import Ward from '../assets/images/Alie_Ward.png';
 import Search_Card from '../components/Search-Card';
 import Tweet from '../components/Tweet';
+
+const [profileData, setProfileData] = useState([]);
+
+const favorites = [
+    '@levarburton',
+    '@alieward',
+    '@SoundersFC',
+    '@Ericidle',
+    '@SenatorCantwell',
+]
+
+for (i=0; favorites.length; i++) {
+    getProfileInfo(favorites[i])
+    let profile = {
+        {tweetResults.entities.}
+    }
+    setProfileData(...)
+}
+
+const getProfileInfo = async (profile) => {
+    
+    const path = `/api/tweets/random/${profile}`
+
+    try {
+        const response = await Axios.get(path);
+        const tweetResults = response.data.statuses;
+        console.log(tweetResults)
+        return tweetResults
+    }
+    catch(error) {
+        console.log(error)
+    }
+  }
+
 
 const profiles = {
     Levar_Burton: {
@@ -37,24 +71,8 @@ const profiles = {
         Description: description,
         Location: place,
     }
-
-
 }
 
-const getProfileInfo = async (profile) => {
-    
-    const path = `/api/tweets/random/${profile}`
-
-    try {
-        const response = await Axios.get(path);
-        const tweetResults = response.data.statuses;
-        const profilePicture = tweetResults.
-        console.log(tweetResults)
-    }
-    catch(error) {
-        console.log(error)
-    }
-  }
 
 
 const Random = () => {
