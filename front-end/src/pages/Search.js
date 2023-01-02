@@ -9,6 +9,8 @@ const Search = ({handleSearch, renderTweets}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         handleSearch(userSearchInput);
+        renderTweets();
+        console.log('Clicked!')
     };
 
     return (
@@ -38,7 +40,7 @@ const Search = ({handleSearch, renderTweets}) => {
                     </div>
                 </div>
                 <div className ='container row justify-content-md-center results-container mb-2'>
-                    {renderTweets}
+                    {renderTweets()}
                 </div>
             </div>
         </div> 

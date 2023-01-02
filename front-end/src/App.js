@@ -33,7 +33,7 @@ function App() {
       }
   }
 
-  const renderTweets = (tweets) => {
+  const renderTweets = () => {
     return tweets.map((tweet, i) => (
         <Tweet
         key = {i}
