@@ -8,7 +8,7 @@ import Tweet from '../components/Tweet';
 
 const [profileData, setProfileData] = useState([]);
 
-const favorites = [
+const favoriteProfiles = [
     '@levarburton',
     '@alieward',
     '@SoundersFC',
@@ -16,12 +16,15 @@ const favorites = [
     '@SenatorCantwell',
 ]
 
-for (i=0; favorites.length; i++) {
-    getProfileInfo(favorites[i])
-    let profile = {
-        {tweetResults.entities.}
-    }
-    setProfileData(...)
+const updateProfileInfo = () => {
+    return (
+        favoriteProfiles.map((profile, i) => {
+            {
+                Name: TweetResults,
+
+            }
+        })
+    )
 }
 
 const getProfileInfo = async (profile) => {
@@ -31,12 +34,22 @@ const getProfileInfo = async (profile) => {
     try {
         const response = await Axios.get(path);
         const tweetResults = response.data.statuses;
-        console.log(tweetResults)
-        return tweetResults
     }
     catch(error) {
         console.log(error)
     }
+    const updatedProfiles = favoriteProfiles.map((profile) => {
+        return(
+            {
+                name: `${TweetResults.user.name}`,
+                handle: `${TweetResults.user.screen_name}`,
+                profile_picture: `${TweetResults.user.screen_name}`,
+                description: `${TweetResults.user.screen_name}`,
+                location: `${TweetResults.user.screen_name}`,
+
+            }
+        )
+    }); 
   }
 
 
