@@ -1,5 +1,5 @@
 
-const Headshot = ({Source, Alt, Name}) => {
+const Headshot = ({Source, Alt, Name, Description}) => {
     return(
         <div className='container d-flex flex-column align-items-center'>
             <img 
@@ -11,6 +11,9 @@ const Headshot = ({Source, Alt, Name}) => {
             ></img>
             <p>
                 {Name}
+            </p>
+            <p>
+                {Description}
             </p>
         </div>
     )

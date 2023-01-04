@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import React from 'react'
 import Axios from 'axios'
 
 import Headshot from '../components/Headshot';
@@ -16,25 +16,22 @@ const favoriteProfiles = [
 ]
 
 const getProfilePicture = async (profile) => {
-    const profilePath = `/api/tweets/random/${profile}`
+    const profilePath = `http://127.0.0.1:5000/api/tweets/random/${profile}`
     const response = await Axios.get(profilePath)
     const profileData = response.data.statuses;
-    const profilePicture = profileData.user.description;
+    const profilePicture = profileData.user.profile_image_url;
     return profilePicture
     }
 
 const getProfileDescription = async (profile) => {
-    const profilePath = `/api/tweets/random/${profile}`
+    const profilePath = `http://127.0.0.1:5000/api/tweets/random/${profile}`
     const response = await Axios.get(profilePath)
     const profileData = response.data.statuses;
     const profileDescription = profileData.user.description;
-    return profileDescription
+    console.log(profileDescription)
     }
 
 const Random = () => {
-
-    const [profileDescription, setProfileDescription] = useState([]);
-
 
     return (
         <div className='container'>
@@ -52,6 +49,7 @@ const Random = () => {
                         <Headshot 
                             Name='Alie Ward'
                             Source={getProfilePicture('@alieward')}
+                            Description={getProfileDescription('@alieward')}
                             Alt='Alie Ward'
                         />
                     </div>
@@ -59,21 +57,24 @@ const Random = () => {
                         <Headshot
                             Name='Seattle Sounders FC' 
                             Source={getProfilePicture('@SoundersFC')}
+                            Description={getProfileDescription('@SoundersFC')}
                             Alt='LeVar Burton'
                         />
                     </div>
                     <div className='container mt-5 col'>
                         <Headshot
-                            Name='LeVar Burton' 
-                            Source={Burton}
-                            Alt='LeVar Burton'
+                            Name='Eric Idle' 
+                            Source={getProfilePicture('@Ericidle')}
+                            Description={getProfileDescription('@Ericidle')}
+                            Alt='Eric Idle'
                         />
                     </div>
                     <div className='container mt-5 col'>
                         <Headshot
-                            Name='LeVar Burton'
-                            Source={Burton}
-                            Alt='LeVar Burton'
+                            Name='Senator Maria Cantell'
+                            Source={getProfilePicture('@Senatorcantwell')}
+                            Description={getProfileDescription('@Senatorcantwell')}
+                            Alt='Senator Cantwell'
                         />
                     </div>
                 </div>
