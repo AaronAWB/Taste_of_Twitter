@@ -31,42 +31,6 @@ const getProfileDescription = async (profile) => {
     return profileDescription
     }
 
-
-
-
-const profiles = {
-    Levar_Burton: {
-        Handle: '@levarburton',
-        Profile_Picture: url,
-        Description: description,
-        Location: place,
-    },
-    Alie_Ward: {
-        Handle: '@alieward',
-        Profile_Picture: url,
-        Description: description,
-        Location: place,
-    },
-    Sounders: {
-        Handle: '@SoundersFC',
-        Profile_Picture: url,
-        Description: description,
-        Location: place,
-    },
-    Eric_Idle: {
-        Handle: '@Ericidle',
-        Profile_Picture: url,
-        Description: description,
-        Location: place,
-    },
-    Maria_Cantwell: {
-        Handle: '@SenatorCantwell',
-        Profile_Picture: url,
-        Description: description,
-        Location: place,
-    }
-}
-
 const Random = () => {
 
     const [profileDescription, setProfileDescription] = useState([]);
