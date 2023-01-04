@@ -1,12 +1,11 @@
 import { useState, useEffect } from 'react'
+import Axios from 'axios'
 
 import Headshot from '../components/Headshot';
 import Burton from '../assets/images/LeVar_Burton.png';
 import Ward from '../assets/images/Alie_Ward.png';
 import Search_Card from '../components/Search-Card';
 import Tweet from '../components/Tweet';
-
-const [profileData, setProfileData] = useState([]);
 
 const favoriteProfiles = [
     '@levarburton',
@@ -15,17 +14,6 @@ const favoriteProfiles = [
     '@Ericidle',
     '@SenatorCantwell',
 ]
-
-const updateProfileInfo = () => {
-    return (
-        favoriteProfiles.map((profile, i) => {
-            {
-                Name: TweetResults,
-
-            }
-        })
-    )
-}
 
 const getProfileInfo = async (profile) => {
     
@@ -89,6 +77,9 @@ const profiles = {
 
 
 const Random = () => {
+
+    const [profileData, setProfileData] = useState([]);
+
     return (
         <div className='container'>
             <div className='container d-flex align-items-center'>
@@ -142,10 +133,3 @@ const Random = () => {
 }
  
 export default Random;
-
-
-// LeVar Burton
-// John Cleese
-// Andy Sterkowitz
-// Alie Ward
-// Premier League
