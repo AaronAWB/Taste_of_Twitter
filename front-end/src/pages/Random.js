@@ -16,25 +16,19 @@ const favoriteProfiles = [
 ]
 
 const getProfilePicture = async (profile) => {
-    
-    const path = `/api/tweets/random/${profile}`
-
-    try {
-        const response = await Axios.get(path);
-        const profileData = response.data.statuses;
-        const profilePicture = profileData
-    }
-    catch(error) {
-        console.log(error)
-    }
+    const profilePath = `/api/tweets/random/${profile}`
+    const response = await Axios.get(profilePath)
+    const profileData = response.data.statuses;
+    const profilePicture = profileData.user.description;
     return profilePicture
-  }
+    }
 
 const getProfileDescription = async (profile) => {
     const profilePath = `/api/tweets/random/${profile}`
-    const species = await Axios.get(profilePath)
+    const response = await Axios.get(profilePath)
     const profileData = response.data.statuses;
-    return profileData.
+    const profileDescription = profileData.user.description;
+    return profileDescription
     }
 
 
