@@ -15,30 +15,29 @@ const favoriteProfiles = [
     '@SenatorCantwell',
 ]
 
-const getProfileInfo = async (profile) => {
+const getProfilePicture = async (profile) => {
     
     const path = `/api/tweets/random/${profile}`
 
     try {
         const response = await Axios.get(path);
-        const tweetResults = response.data.statuses;
+        const profileData = response.data.statuses;
+        const profilePicture = profileData
     }
     catch(error) {
         console.log(error)
     }
-    const updatedProfiles = favoriteProfiles.map((profile) => {
-        return(
-            {
-                name: `${tweetResults.user.name}`,
-                handle: `${tweetResults.user.screen_name}`,
-                profile_picture: `${tweetResults.user.screen_name}`,
-                description: `${tweetResults.user.screen_name}`,
-                location: `${tweetResults.user.screen_name}`,
-
-            }
-        )
-    }); 
+    return profilePicture
   }
+
+const getProfileDescription = async (profile) => {
+    const profilePath = `/api/tweets/random/${profile}`
+    const species = await Axios.get(profilePath)
+    const profileData = response.data.statuses;
+    return profileData.
+    }
+
+
 
 
 const profiles = {
@@ -74,11 +73,10 @@ const profiles = {
     }
 }
 
-
-
 const Random = () => {
 
-    const [profileData, setProfileData] = useState([]);
+    const [profileDescription, setProfileDescription] = useState([]);
+
 
     return (
         <div className='container'>
@@ -87,7 +85,8 @@ const Random = () => {
                     <div className='container mt-5 col'>
                         <Headshot
                             Name='LeVar Burton' 
-                            Source={getProfileInfo('@levarburton')}
+                            Source={getProfilePicture('@levarburton')}
+                            Description={getProfileDescription('@levarburton')}
                             Alt='LeVar Burton'
                         />
                     </div>
