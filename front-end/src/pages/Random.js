@@ -80,9 +80,6 @@ const Random = () => {
                 </div>
             </div>
                     <div className='container d-flex align-items-center'>
-                        <Search_Card />
-                    </div>
-                    <div className='container d-flex align-items-center'>
                         <Tweet />
                     </div>
                     
