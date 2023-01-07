@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import Axios from 'axios'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import './styles/App.css'
 import Navbar from './components/Navbar';
 import Tweet from './components/Tweet';
 import Home from './pages/Home';

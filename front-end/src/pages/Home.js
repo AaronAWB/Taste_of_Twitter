@@ -5,6 +5,26 @@ const Home = () => {
     return (  
         <div className='container content-container'>
             <div className='col'>
+                <div className='container row justify-content-md-center'>
+                    <div className='card shadow-sm bg-light mt-2 mb-2'>
+                                    <div className='card-body'>
+                                        <h3 className='card-title mb-2'>
+                                            Search by Handle or Keyword
+                                        </h3>
+                                        <p>
+                                            Search all of Twitter by Handle or Keyword! 
+                                            The ten most recent Tweets matching your search will be displayed -
+                                            No need to use Twitter or even have a Twitter account!
+                                        </p>
+                                    </div>
+                            </div>
+                    <img src='' alt='this is where an image will go'></img>
+                    <p>This is an App that lets you do some simple Twitter functions without using Twitter.
+                        It saves you having to deal with all of Twitter's extra features and adds.
+                        You can either search all of Twitter by Handle or Keyword, or search for a random
+                        Tweet from five pre-selected accounts.
+                    </p>
+                </div>
                 <div className='container row justify-content-md-center search-container'>
                     <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <div className='card homepage-card shadow-sm bg-light mt-2 mb-2'>
