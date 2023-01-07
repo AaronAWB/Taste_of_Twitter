@@ -8,7 +8,13 @@ const Home = () => {
                 <div className='col'>
                     <div className='card shadow-sm bg-light mt-2 mb-2'>
                         <div className='card-body'>
-                            <img src='' alt='this is where an image will go'></img>
+                                <img 
+                                    src=''
+                                    alt='Header image'
+                                    className='img-thumbnail rounded-circle shadow-sm'
+                                    width='200px'
+                                    height='200px'
+                                ></img>
                                 <h1 className='card-title mb-2'>
                                     My Twitter Showcase App
                                 </h1>
