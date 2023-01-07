@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import '../styles/Home.css'
+import './Pages.css'
 
 const Home = () => {
     return (  
@@ -51,7 +51,6 @@ const Home = () => {
                                     </div>
                             </div>
                         </Link>
-                    
                 </div>
             </div>
         </div>

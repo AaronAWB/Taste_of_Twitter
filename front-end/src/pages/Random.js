@@ -1,11 +1,11 @@
 import React from 'react'
 import Axios from 'axios'
 
-import Headshot from '../components/Headshot';
+import Headshot from '../components/Headshot/Headshot';
 import Burton from '../assets/images/LeVar_Burton.png';
 import Ward from '../assets/images/Alie_Ward.png';
 import Search_Card from '../components/Search-Card';
-import Tweet from '../components/Tweet';
+import Tweet from '../components/Tweet/Tweet';
 
 const favoriteProfiles = [
     '@levarburton',

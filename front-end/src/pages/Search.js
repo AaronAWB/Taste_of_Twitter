@@ -1,6 +1,5 @@
 import React from 'react'
 import { useState } from 'react'
-import '../styles/Search.css'
 
 const Search = ({getTweets, renderTweets}) => {
 

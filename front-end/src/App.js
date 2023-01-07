@@ -1,8 +1,8 @@
 import { useState } from 'react'
 import Axios from 'axios'
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import Navbar from './components/Navbar';
-import Tweet from './components/Tweet';
+import Navbar from './components/Navbar/Navbar';
+import Tweet from './components/Tweet/Tweet';
 import Home from './pages/Home';
 import Search from './pages/Search';
 import Random from './pages/Random';

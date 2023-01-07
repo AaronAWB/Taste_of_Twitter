@@ -2,10 +2,6 @@ body {
     background-image: linear-gradient(to right, rgb(115, 191, 238), rgb(255, 255, 255));
 }
 
-.container {
-    border: 5px, solid, red !important;
-}
-
 .homepage-card {
     transition: all 0.3s;
     width: 600px !important;
@@ -16,4 +12,16 @@ body {
     transform: scale(1.02);
 }
 
+.search-content-container {
+    display: flex;
+    justify-content: center;
+}
 
+.card {
+    width: 600px;
+    margin: 100px;
+}
+
+.btn {
+    color: white !important;
+}
