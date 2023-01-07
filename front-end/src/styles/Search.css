@@ -1,14 +1,4 @@
-.content-container {
-    display: flex;
-    justify-content: center;
-}
-
-.search-container {
-    display: flex;
-    justify-content: center;
-}
-
-.results-container {
+.search-content-container {
     display: flex;
     justify-content: center;
 }

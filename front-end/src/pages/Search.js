@@ -10,11 +10,10 @@ const Search = ({getTweets, renderTweets}) => {
         e.preventDefault();
         getTweets(userSearch);
         renderTweets();
-        console.log('Clicked!')
     };
 
     return (
-        <div className='container content-container'> 
+        <div className='container search-content-container'> 
             <div className='col-6'>
                 <div className='container row justify-content-md-center search-container mt-5 mb-2'>
                     <div className='card shadow-sm bg-light mt-2 mb-2'>
