@@ -1,5 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Pages.css'
+import Main_Image from '../assets/images/Twitter_1.jpg';
 
 const Home = () => {
     return (  
@@ -9,7 +10,7 @@ const Home = () => {
                     <div className='card shadow-sm bg-light mt-2 mb-2'>
                         <div className='card-body'>
                                 <img 
-                                    src=''
+                                    src={Main_Image}
                                     alt='Header image'
                                     className='img-thumbnail rounded-circle shadow-sm'
                                     width='200px'

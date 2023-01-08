@@ -1,4 +1,4 @@
-import React from 'react'
+import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 
 import Headshot from '../components/Headshot/Headshot';
@@ -14,24 +14,24 @@ const favoriteProfiles = [
     '@SenatorCantwell',
 ]
 
-const getProfilePicture = async (profile) => {
-    const profilePath = `http://127.0.0.1:5000/api/tweets/random/${profile}`
-    const response = await Axios.get(profilePath)
-    const profileData = response.data.statuses;
-    const profilePicture = profileData.user.profile_image_url;
-    return profilePicture
-    }
+useEffect (() => {
+    getProfileData();
+}, [])
 
-const getProfileDescription = async (profile) => {
-    const profilePath = `http://127.0.0.1:5000/api/tweets/random/${profile}`
-    const response = await Axios.get(profilePath)
-    const profileData = response.data.statuses;
-    const profileDescription = profileData.user.description;
-    console.log(profileDescription)
+const getProfileData = () => {
+    for (profile of favoriteProfiles) {
+        let path = profile;
+        const apiPath = `http://127.0.0.1:5000/api/tweets/random/${path}`
+        const response = await Axios.get(apiPath);
+        const profileData = response.data.statuses;
+        setProfiles(...profiles, profileData)
     }
+}
 
 const Random = () => {
 
+    const [profiles, setProfiles] = useState([]);
+ 
     return (
         <div className='container'>
             <div className='container d-flex align-items-center'>
