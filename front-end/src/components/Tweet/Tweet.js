@@ -1,7 +1,7 @@
 import Retweet_Icon from '../../assets/icons/retweet.png';
 import Like_Icon from '../../assets/icons/like.png'
 
-const Tweet = ({name, handle, text, image, retweets, likes}) => {
+const Tweet = ({name, handle, text, image, retweets, favorites}) => {
 
     return(
         <div className='card shadow-sm mb-2 mt-2'>
@@ -34,7 +34,7 @@ const Tweet = ({name, handle, text, image, retweets, likes}) => {
                     >
                     </img>
                     <p>
-                        {likes}
+                        {favorites}
                     </p>
                 </div>
             </div>

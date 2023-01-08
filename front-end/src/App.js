@@ -12,6 +12,7 @@ function App() {
   const baseURL = 'http://127.0.0.1:5000/api/tweets/'
 
   const [tweets, setTweets] = useState([]);
+  const [profiles, setProfiles] = useState([]);
   
   const getTweets = async (userSearch) => {
       
@@ -53,15 +54,63 @@ function App() {
     return <></>;
   }
 
+  const favoriteProfiles = [
+    {
+        'name': 'Levar Burton',
+        'handle': '@levarburton'
+    },
+    {
+        'name': 'Alie Ward',
+        'handle': '@alieward'
+    },
+    {
+        'name': 'Seattle Sounders FC',
+        'handle': '@SoundersFC'
+    },
+    {
+        'name': 'Eric Idle',
+        'handle': '@Ericidle'
+    },
+    {
+        'name': 'Senator Maria Cantwell',
+        'handle': '@SenatorCantwell'
+    },
+]
+
+  const getProfileData = () => {
+
+  return favoriteProfiles.map((favoriteProfile) => {
+      let handle = favoriteProfile.handle
+      const apiPath = `http://127.0.0.1:5000/api/tweets/random/${handle}`
+      const response = Axios.get(apiPath);
+      const profileData = response;
+      console.log(profileData)
+      setProfiles([...profiles, profileData])
+  })
+}
+
   return (
     <Router>
       <div className='app'>
         <Navbar />
         <div className='content'>
           <Routes>
-            <Route path='/' element={<Home />}></Route>
-            <Route path='/search' element={<Search renderTweets={renderTweets} getTweets={getTweets}/>}></Route>
-            <Route path='/random' element={<Random />}></Route>
+            <Route 
+              path='/' 
+              element={<Home />}></Route>
+            <Route 
+              path='/search' 
+              element={<Search 
+                renderTweets={renderTweets} 
+                getTweets={getTweets}
+                />}></Route>
+            <Route 
+              path='/random' 
+              element={<Random 
+                favoriteProfiles={favoriteProfiles} 
+                getProfileData={getProfileData} 
+                profiles={profiles}
+                />}></Route>
           </Routes>
         </div>
       </div>
