@@ -7,18 +7,33 @@ import Ward from '../assets/images/Alie_Ward.png';
 import Tweet from '../components/Tweet/Tweet';
 
 const favoriteProfiles = [
-    '@levarburton',
-    '@alieward',
-    '@SoundersFC',
-    '@Ericidle',
-    '@SenatorCantwell',
+    {
+        'name': 'Levar Burton',
+        'handle': '@levarburton'
+    },
+    {
+        'name': 'Alie Ward',
+        'handle': '@alieward'
+    },
+    {
+        'name': 'Seattle Sounders FC',
+        'handle': '@SoundersFC'
+    },
+    {
+        'name': 'Eric Idle',
+        'handle': '@Ericidle'
+    },
+    {
+        'name': 'Senator Maria Cantwell',
+        'handle': '@SenatorCantwell'
+    },
 ]
 
 useEffect (() => {
     getProfileData();
 }, [])
 
-const getProfileData = () => {
+const getProfileData = async () => {
     for (profile of favoriteProfiles) {
         let path = profile;
         const apiPath = `http://127.0.0.1:5000/api/tweets/random/${path}`
@@ -26,6 +41,21 @@ const getProfileData = () => {
         const profileData = response.data.statuses;
         setProfiles(...profiles, profileData)
     }
+}
+
+const renderFavoriteProfiles = () => {
+    return profiles.map((profile, i) => {
+        return(
+            <div className='container mt-5 col' key={i}>
+                <Headshot
+                    Name={profile.user.name}
+                    Source={profile.user}
+                    Description={profile.user.description}
+                    Alt={profile.user.name}
+                    />
+            </div>
+        )
+    })
 }
 
 const Random = () => {
@@ -36,52 +66,12 @@ const Random = () => {
         <div className='container'>
             <div className='container d-flex align-items-center'>
                 <div className='row'>
-                    <div className='container mt-5 col'>
-                        <Headshot
-                            Name='LeVar Burton' 
-                            Source={getProfilePicture('@levarburton')}
-                            Description={getProfileDescription('@levarburton')}
-                            Alt='LeVar Burton'
-                        />
-                    </div>
-                    <div className='container mt-5 col'>
-                        <Headshot 
-                            Name='Alie Ward'
-                            Source={getProfilePicture('@alieward')}
-                            Description={getProfileDescription('@alieward')}
-                            Alt='Alie Ward'
-                        />
-                    </div>
-                    <div className='container mt-5 col'>
-                        <Headshot
-                            Name='Seattle Sounders FC' 
-                            Source={getProfilePicture('@SoundersFC')}
-                            Description={getProfileDescription('@SoundersFC')}
-                            Alt='LeVar Burton'
-                        />
-                    </div>
-                    <div className='container mt-5 col'>
-                        <Headshot
-                            Name='Eric Idle' 
-                            Source={getProfilePicture('@Ericidle')}
-                            Description={getProfileDescription('@Ericidle')}
-                            Alt='Eric Idle'
-                        />
-                    </div>
-                    <div className='container mt-5 col'>
-                        <Headshot
-                            Name='Senator Maria Cantell'
-                            Source={getProfilePicture('@Senatorcantwell')}
-                            Description={getProfileDescription('@Senatorcantwell')}
-                            Alt='Senator Cantwell'
-                        />
-                    </div>
+                    {renderFavoriteProfiles}
                 </div>
             </div>
-                    <div className='container d-flex align-items-center'>
-                        <Tweet />
-                    </div>
-                    
+                <div className='container d-flex align-items-center'>
+                    <Tweet />
+                </div>     
         </div>
     );
 }
