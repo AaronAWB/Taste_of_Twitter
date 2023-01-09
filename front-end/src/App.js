@@ -57,31 +57,36 @@ function App() {
   const favoriteProfiles = [
     {
         'name': 'Levar Burton',
-        'handle': '@levarburton'
+        'handle': '@levarburton',
+        'screen_name': 'levarburton'
     },
     {
         'name': 'Alie Ward',
-        'handle': '@alieward'
+        'handle': '@alieward',
+        'screen_name': 'alieward'
     },
     {
         'name': 'Seattle Sounders FC',
-        'handle': '@SoundersFC'
+        'handle': '@SoundersFC',
+        'screen_name': 'soundersfc'
     },
     {
         'name': 'Eric Idle',
-        'handle': '@Ericidle'
+        'handle': '@Ericidle',
+        'screen_name': 'ericidle'
     },
     {
         'name': 'Senator Maria Cantwell',
-        'handle': '@SenatorCantwell'
+        'handle': '@SenatorCantwell',
+        'screen_name': 'senatorcantwell'
     },
 ]
 
   const getProfileData = () => {
 
   return favoriteProfiles.map((favoriteProfile) => {
-      let handle = favoriteProfile.handle
-      const apiPath = `http://127.0.0.1:5000/api/profiles/${handle}`
+      const screenName = favoriteProfile.screen_name;
+      const apiPath = `http://127.0.0.1:5000/api/profiles/${screenName}`
       const response = Axios.get(apiPath);
       const profileData = response;
       console.log(profileData)

@@ -8,7 +8,7 @@ const Tweet = ({name, handle, text, image, retweets, favorites}) => {
         <div className='card shadow-sm mb-2 mt-2'>
             <div className ='card-body'>
                 <h5 className='card-title mb-3'>
-                    {name} <span className='text-muted'>@{handle} </span>
+                    {name} <span className='handle text-muted'>@{handle} </span>
                 </h5>
                 <p className='mb-3'>
                     {text}
@@ -24,7 +24,7 @@ const Tweet = ({name, handle, text, image, retweets, favorites}) => {
                         height='22px'
                     >
                     </img>
-                    <p>
+                    <p className='retweets-count'>
                         {retweets}
                     </p>
                     <img

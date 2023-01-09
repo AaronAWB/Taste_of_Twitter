@@ -1,3 +1,13 @@
+.handle {
+    font-size: medium;
+}
+
 .favorites-count {
     padding-left: 5px;
+}
+
+.retweets-count {
+    padding-left: 5px;
+    padding-right: 5px;
+    
 }

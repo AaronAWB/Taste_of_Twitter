@@ -14,9 +14,9 @@ const Random = ({favoriteProfiles, getProfileData, profiles}) => {
             return(
                 <div className='container mt-5 col' key={i}>
                     <Headshot
-                        Name={profile.user.name}
-                        Source={profile.user.profile_image_url_https}
-                        Description={profile.user.description}
+                        Name={profile.data[0].name}
+                        Source={profile.data[0].profile_image_url_https}
+                        Description={profile.data[0].description}
                         Alt={profile.username}
                         />
                 </div>
