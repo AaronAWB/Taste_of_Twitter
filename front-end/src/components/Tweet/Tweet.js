@@ -1,5 +1,6 @@
 import Retweet_Icon from '../../assets/icons/retweet.png';
 import Like_Icon from '../../assets/icons/like.png'
+import './Tweet.css'
 
 const Tweet = ({name, handle, text, image, retweets, favorites}) => {
 
@@ -33,7 +34,7 @@ const Tweet = ({name, handle, text, image, retweets, favorites}) => {
                         height='22px'
                     >
                     </img>
-                    <p>
+                    <p className='favorites-count'>
                         {favorites}
                     </p>
                 </div>
