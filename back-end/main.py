@@ -4,7 +4,8 @@ from flask_restful import Api
 from flask_cors import CORS
 from keys import API_BEARER_TOKEN
 
-url = 'https://api.twitter.com/1.1/search/tweets.json?q='
+tweetUrl = 'https://api.twitter.com/1.1/search/tweets.json?q='
+profileUrl = 'https://api.twitter.com/1.1/users/lookup.json?screen_name='
 
 headers = {
     'Content-Type': 'application/json',
@@ -18,17 +19,22 @@ cors= CORS(app, resources={r'/api/*': {'origins:': '*'}})
 
 @app.route('/api/tweets/handle_search/<handle>', methods=['GET'])
 def search_tweets_handle(handle):
-    response = requests.get(url+'from:'+handle+'&count=10', headers=headers).json()
+    response = requests.get(tweetUrl+'from:'+handle+'&count=10', headers=headers).json()
     return response
 
 @app.route('/api/tweets/keyword_search/<keyword>', methods=['GET'])
 def search_tweets_keyword(keyword):
-    response = requests.get(url+keyword+'&count=10', headers=headers).json()
+    response = requests.get(tweetUrl+keyword+'&count=10', headers=headers).json()
     return response
 
 @app.route('/api/tweets/random/<handle>', methods=['GET'])
 def search_tweets_random(handle):
-    response = requests.get(url+'from:'+handle, headers=headers).json()
+    response = requests.get(tweetUrl+'from:'+handle, headers=headers).json()
+    return response
+
+@app.route('/api/profiles/<handle>', methods=['GET'])
+def search_profiles(handle):
+    response = requests.get(profileUrl+'from:'+handle, headers=headers).json()
     return response
 
 # @app.errorhandler(404)

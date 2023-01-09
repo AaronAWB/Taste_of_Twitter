@@ -1,5 +1,4 @@
-import React, {useState, useEffect} from 'react'
-import Axios from 'axios'
+import React, {useEffect} from 'react'
 
 import Headshot from '../components/Headshot/Headshot';
 import Tweet from '../components/Tweet/Tweet';

@@ -81,7 +81,7 @@ function App() {
 
   return favoriteProfiles.map((favoriteProfile) => {
       let handle = favoriteProfile.handle
-      const apiPath = `http://127.0.0.1:5000/api/tweets/random/${handle}`
+      const apiPath = `http://127.0.0.1:5000/api/profiles/${handle}`
       const response = Axios.get(apiPath);
       const profileData = response;
       console.log(profileData)
