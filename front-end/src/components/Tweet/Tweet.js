@@ -13,9 +13,9 @@ const Tweet = ({name, handle, text, image, retweets, favorites}) => {
                 <p className='mb-3'>
                     {text}
                 </p>
-                <p>
+                <div>
                     {image}
-                </p>
+                </div>
                 <div className='d-flex'>
                     <img
                         src={Retweet_Icon}
