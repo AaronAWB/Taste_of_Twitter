@@ -40,7 +40,7 @@ function App() {
         name={tweet.user.name}
         handle={tweet.user.screen_name}         
         text={tweet.text} 
-        image={renderTweetImage}
+        image={renderTweetImage(tweet)}
         retweets={tweet.retweet_count}
         favorites={tweet.favorite_count}
         />
@@ -49,7 +49,7 @@ function App() {
 
   const renderTweetImage = (tweet) => {
     if (tweet.hasOwnProperty('extended_entities')) {
-      return (<img src={tweet.extended_entities.media[0]}/>);
+      return (<img src={tweet.extended_entities.media[0].media_url}/>);
     }
     return <></>;
   }
