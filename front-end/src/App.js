@@ -37,6 +37,7 @@ function App() {
     return tweets.map((tweet, i) => (
         <Tweet
         key = {i}
+        profile_picture={tweet.user.profile_image_url_https}
         name={tweet.user.name}
         handle={tweet.user.screen_name}         
         text={tweet.text} 

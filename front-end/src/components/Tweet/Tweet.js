@@ -2,11 +2,12 @@ import Retweet_Icon from '../../assets/icons/retweet.png';
 import Like_Icon from '../../assets/icons/like.png'
 import './Tweet.css'
 
-const Tweet = ({name, handle, text, image, retweets, favorites}) => {
+const Tweet = ({profile_picture, name, handle, text, image, retweets, favorites}) => {
 
     return(
         <div className='card shadow-sm mb-2 mt-2'>
             <div className ='card-body'>
+                <img src={profile_picture}></img>
                 <h5 className='card-title mb-3'>
                     {name} <span className='handle text-muted'>@{handle} </span>
                 </h5>
