@@ -7,7 +7,12 @@ const Tweet = ({profile_picture, name, handle, text, image, retweets, favorites}
     return(
         <div className='card shadow-sm mb-2 mt-2'>
             <div className ='card-body'>
-                <img src={profile_picture}></img>
+                <img 
+                    src={profile_picture}
+                    alt='profile picture'
+                    className='rounded-circle'
+                    >
+                </img>
                 <h5 className='card-title mb-3'>
                     {name} <span className='handle text-muted'>@{handle} </span>
                 </h5>
