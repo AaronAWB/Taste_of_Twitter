@@ -13,7 +13,7 @@ const Tweet = ({name, handle, text, image, retweets, favorites}) => {
                 <p className='mb-3'>
                     {text}
                 </p>
-                <div>
+                <div className='mb-3'>
                     {image}
                 </div>
                 <div className='d-flex'>

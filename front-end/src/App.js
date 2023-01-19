@@ -49,7 +49,7 @@ function App() {
 
   const renderTweetImage = (tweet) => {
     if (tweet.hasOwnProperty('extended_entities')) {
-      return (<img src={tweet.extended_entities.media[0].media_url}/>);
+      return (<img width='500px' height='300px' src={tweet.extended_entities.media[0].media_url}/>);
     }
     return <></>;
   }
