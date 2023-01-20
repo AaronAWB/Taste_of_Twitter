@@ -1,3 +1,11 @@
+.tweet-card {
+    display: flex;
+}
+
+.profile-image {
+    padding-right: 15px;
+}
+
 .handle {
     font-size: large;
 }

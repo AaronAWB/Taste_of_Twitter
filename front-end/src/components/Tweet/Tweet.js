@@ -6,44 +6,50 @@ const Tweet = ({profile_picture, name, handle, text, image, retweets, favorites}
 
     return(
         <div className='card shadow-sm mb-2 mt-2'>
-            <div className ='card-body'>
-                <img 
-                    src={profile_picture}
-                    alt='profile picture'
-                    className='rounded-circle'
-                    >
-                </img>
-                <h5 className='card-title mb-3'>
-                    {name} <span className='handle text-muted'>@{handle} </span>
-                </h5>
-                <p className='mb-3'>
-                    {text}
-                </p>
-                <div className='mb-3'>
-                    {image}
-                </div>
-                <div className='d-flex'>
-                    <img
-                        src={Retweet_Icon}
-                        alt='retweets'
-                        width='22px'
-                        height='22px'
-                    >
-                    </img>
-                    <p className='retweets-count'>
-                        {retweets}
-                    </p>
-                    <img
-                        src={Like_Icon}
-                        alt='likes'
-                        width='22px'
-                        height='22px'
-                    >
-                    </img>
-                    <p className='favorites-count'>
-                        {favorites}
-                    </p>
-                </div>
+            <div className ='card-body tweet-card'>
+                
+                    <div className='profile-image'>
+                        <img 
+                            src={profile_picture}
+                            alt='profile picture'
+                            className='rounded-circle'
+                            >
+                        </img>
+                    </div>
+                    <div className='tweet-content'>
+                        <h5 className='card-title mb-3'>
+                            {name} <span className='handle text-muted'>@{handle} </span>
+                        </h5>
+                        <p className='mb-3'>
+                            {text}
+                        </p>
+                        <div className='mb-3'>
+                            {image}
+                        </div>
+                        <div className='d-flex'>
+                            <img
+                                src={Retweet_Icon}
+                                alt='retweets'
+                                width='22px'
+                                height='22px'
+                            >
+                            </img>
+                            <p className='retweets-count'>
+                                {retweets}
+                            </p>
+                            <img
+                                src={Like_Icon}
+                                alt='likes'
+                                width='22px'
+                                height='22px'
+                            >
+                            </img>
+                            <p className='favorites-count'>
+                                {favorites}
+                            </p>
+                        </div>
+                    </div>
+                
             </div>
         </div>
     )
