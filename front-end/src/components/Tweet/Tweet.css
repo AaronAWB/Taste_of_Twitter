@@ -1,4 +1,12 @@
 .tweet-card {
+    transition: all 0.3s;
+}
+
+.tweet-card:hover {
+    transform: scale(1.02);
+}
+
+.tweet-body {
     display: flex;
 }
 
