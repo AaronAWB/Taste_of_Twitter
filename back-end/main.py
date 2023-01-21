@@ -13,13 +13,23 @@ headers = {
     'Authorization': f'Bearer {API_BEARER_TOKEN}'
 }
 
+search_params = {
+    'count': '10',
+    'tweet_mode': 'extended'
+}
+
+random_params = {
+    'Count': '1',
+    'Tweet_Mode': 'extended'
+}
+
 app = Flask(__name__)
 api = Api(app)
 cors= CORS(app, resources={r'/api/*': {'origins:': '*'}})
 
 @app.route('/api/tweets/handle_search/<handle>', methods=['GET'])
 def search_tweets_handle(handle):
-    response = requests.get(tweetUrl+'from:'+handle+'&count=10', headers=headers).json()
+    response = requests.get(tweetUrl+'from:'+handle, headers=headers, params=search_params).json()
     return response
 
 @app.route('/api/tweets/keyword_search/<keyword>', methods=['GET'])
