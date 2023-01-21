@@ -15,12 +15,12 @@
 }
 
 .handle {
-    font-size: large;
+    font-size: medium;
 }
 
 .date {
-    font-size: large;
-    padding-left: 130px;
+    font-size: medium;
+    display: flex;
 }
 
 .favorites-count {
@@ -29,6 +29,6 @@
 
 .retweets-count {
     padding-left: 5px;
-    padding-right: 5px;
+    padding-right: 15px;
     
 }
