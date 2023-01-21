@@ -40,7 +40,7 @@ function App() {
         profile_picture={tweet.user.profile_image_url_https}
         name={tweet.user.name}
         handle={tweet.user.screen_name}         
-        text={tweet.text} 
+        text={tweet.full_text} 
         image={renderTweetImage(tweet)}
         retweets={tweet.retweet_count}
         favorites={tweet.favorite_count}
