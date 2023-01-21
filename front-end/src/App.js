@@ -40,7 +40,7 @@ function App() {
         profile_picture={tweet.user.profile_image_url_https}
         name={tweet.user.name}
         handle={tweet.user.screen_name}  
-        date={renderDate(tweet)}       
+        date={modifyDate(tweet)}       
         text={tweet.full_text} 
         image={renderTweetImage(tweet)}
         retweets={tweet.retweet_count}
@@ -63,9 +63,11 @@ function App() {
     return <></>;
   }
 
-  const renderDate = (tweet) => {
+  const modifyDate = (tweet) => {
     const date = tweet.created_at
-    return date.slice(0,10) + date.slice(16,20)
+    const monthAndDay= date.slice(4,10)
+    const year = date.slice(25,30)
+    return `${monthAndDay}, ${year}`
   }
 
   const favoriteProfiles = [
