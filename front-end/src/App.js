@@ -39,7 +39,8 @@ function App() {
         key = {i}
         profile_picture={tweet.user.profile_image_url_https}
         name={tweet.user.name}
-        handle={tweet.user.screen_name}         
+        handle={tweet.user.screen_name}  
+        date={renderDate(tweet)}       
         text={tweet.full_text} 
         image={renderTweetImage(tweet)}
         retweets={tweet.retweet_count}
@@ -60,6 +61,11 @@ function App() {
       );
     }
     return <></>;
+  }
+
+  const renderDate = (tweet) => {
+    const date = tweet.created_at
+    return date.slice(0,10) + date.slice(16,20)
   }
 
   const favoriteProfiles = [
