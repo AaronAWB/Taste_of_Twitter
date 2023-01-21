@@ -73,19 +73,9 @@ function App() {
         <Navbar />
         <div className='content'>
           <Routes>
-            <Route 
-              path='/' 
-              element={<Home />}
-              >
-            </Route>
-            <Route 
-              path='/search' 
-              element={<Search renderTweets={renderTweets} getTweets={getTweets}/>}>
-            </Route>
-            <Route 
-              path='/random' 
-              element={<Random getTweets={getTweets}/>}>
-            </Route>
+            <Route path='/' element={<Home />}></Route>
+            <Route path='/search' element={<Search renderTweets={renderTweets} getTweets={getTweets}/>}></Route>
+            <Route path='/random' element={<Random getTweets={getTweets}/>}></Route>
           </Routes>
         </div>
       </div>

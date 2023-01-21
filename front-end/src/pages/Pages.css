@@ -12,7 +12,7 @@ body {
     transform: scale(1.02);
 }
 
-.search-content-container {
+.search-content-container, .random-content-container {
     display: flex;
     justify-content: center;
 }

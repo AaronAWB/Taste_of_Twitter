@@ -34,7 +34,7 @@ def search_tweets_handle(handle):
 
 @app.route('/api/tweets/keyword_search/<keyword>', methods=['GET'])
 def search_tweets_keyword(keyword):
-    response = requests.get(tweetUrl+keyword+'&count=10', headers=headers).json()
+    response = requests.get(tweetUrl+keyword+'&count=10', headers=headers, params=search_params).json()
     return response
 
 @app.route('/api/tweets/random/<handle>', methods=['GET'])
