@@ -18,7 +18,7 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                     </div>
                     <div className='tweet-content'>
                         <h5 className='card-title mb-3'>
-                            {name} <span className='handle text-muted'>@{handle} </span> {date}
+                            {name} <span className='handle text-muted'>@{handle} </span> <span className='date text-muted'>{date} </span>
                         </h5>
                         <p className='mb-3'>
                             {text}

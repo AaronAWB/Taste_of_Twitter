@@ -18,6 +18,11 @@
     font-size: large;
 }
 
+.date {
+    font-size: large;
+    padding-left: 130px;
+}
+
 .favorites-count {
     padding-left: 5px;
 }
