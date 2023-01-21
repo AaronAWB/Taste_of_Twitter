@@ -12,7 +12,6 @@ function App() {
   const baseURL = 'http://127.0.0.1:5000/api/tweets/'
 
   const [tweets, setTweets] = useState([]);
-  const [profiles, setProfiles] = useState([]);
   
   const getTweets = async (userSearch) => {
       
@@ -68,46 +67,6 @@ function App() {
     return `${monthAndDay}, ${year}`
   }
 
-  const favoriteProfiles = [
-    {
-        'name': 'Levar Burton',
-        'handle': '@levarburton',
-        'screen_name': 'levarburton'
-    },
-    {
-        'name': 'Alie Ward',
-        'handle': '@alieward',
-        'screen_name': 'alieward'
-    },
-    {
-        'name': 'Seattle Sounders FC',
-        'handle': '@SoundersFC',
-        'screen_name': 'soundersfc'
-    },
-    {
-        'name': 'Eric Idle',
-        'handle': '@Ericidle',
-        'screen_name': 'ericidle'
-    },
-    {
-        'name': 'Senator Maria Cantwell',
-        'handle': '@SenatorCantwell',
-        'screen_name': 'senatorcantwell'
-    },
-]
-
-  const getProfileData = () => {
-
-  return favoriteProfiles.map((favoriteProfile) => {
-      const screenName = favoriteProfile.screen_name;
-      const apiPath = `http://127.0.0.1:5000/api/profiles/${screenName}`
-      const response = Axios.get(apiPath);
-      const profileData = response;
-      console.log(profileData)
-      setProfiles([...profiles, profileData])
-  })
-}
-
   return (
     <Router>
       <div className='app'>
@@ -116,20 +75,17 @@ function App() {
           <Routes>
             <Route 
               path='/' 
-              element={<Home />}></Route>
+              element={<Home />}
+              >
+            </Route>
             <Route 
               path='/search' 
-              element={<Search 
-                renderTweets={renderTweets} 
-                getTweets={getTweets}
-                />}></Route>
+              element={<Search renderTweets={renderTweets} getTweets={getTweets}/>}>
+            </Route>
             <Route 
               path='/random' 
-              element={<Random 
-                favoriteProfiles={favoriteProfiles} 
-                getProfileData={getProfileData} 
-                profiles={profiles}
-                />}></Route>
+              element={<Random getTweets={getTweets}/>}>
+            </Route>
           </Routes>
         </div>
       </div>
