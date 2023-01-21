@@ -53,10 +53,8 @@ function App() {
     if (tweet.hasOwnProperty('extended_entities')) {
       return (
       <img 
-        width='500px' 
-        height='300px' 
         src={tweet.extended_entities.media[0].media_url}
-        className='rounded'
+        className='tweet-image rounded'
         />
       );
     }
