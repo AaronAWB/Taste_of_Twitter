@@ -1,3 +1,4 @@
-.description-card {
-    background-color: lightblue
+.description-container {
+    justify-content: center;
+    color: white;
 }
