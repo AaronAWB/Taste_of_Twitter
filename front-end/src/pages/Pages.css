@@ -15,6 +15,7 @@ body {
 .search-content-container, .random-content-container {
     display: flex;
     justify-content: center;
+    border: red solid 2px;
 }
 
 .card {

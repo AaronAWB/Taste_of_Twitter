@@ -1,9 +1,35 @@
-import React, {useEffect} from 'react'
+import React, {useState, useEffect} from 'react'
 
 import Headshot from '../components/Headshot/Headshot';
 import Tweet from '../components/Tweet/Tweet';
 
 const Random = ({getProfileData, profiles}) => {
+
+    const [randomTweet, setRandomTweet] = useState([])
+
+    const getRandomTweet = async () => {
+        const profile = getRandomProfile();
+        let path = `/api/tweets/random/${profile}`
+        try {
+            const response = await Axios.get(path);
+            const tweetResults = response.data.statuses;
+            setRandomTweet(tweetResults)
+        }
+        catch(error) {
+            console.log(error)
+        }
+    }
+
+    const getRandomProfile = () => {
+        const randomProfile = favoriteProfiles[getRandomNumber()].handle;
+        return randomProfile
+    }
+
+    const getRandomNumber = () => {
+        return Math.floor(Math.random()*5)
+    }
+
+
 
     // useEffect (() => {
     //     getProfileData();
@@ -65,29 +91,30 @@ const Random = ({getProfileData, profiles}) => {
     // }
     
     return (
-        <div className='container random-content-container'>
+        
         //     {/* <div className='container d-flex align-items-center'>
         //         <div className='row'>
         //             {renderFavoriteProfiles()}
         //         </div>
         //     </div> */}
-            <div className='container row justify-content-md-center search-container mt-5 mb-2'>
-                <div className='col-6'>
+        <div className='container random-content-container'>
+            <div className='col-6'>
+                <div className='container row justify-content-md-center random-container mt-5 mb-2'>
                     <div className='card shadow-sm bg-light mt-2 mb-2'>
                         <div className='card-body'>
                             <h3 className='card-title mb-2'>
                                 Random
                             </h3>
-                            <button className='btn btn-info form-control' type='submit'>
+                            <button className='btn btn-info form-control'>
                                 Display Random Tweet
                             </button>
                         </div>
                     </div>
                 </div>
             </div>
-                <div className='container d-flex align-items-center'>
-                    <Tweet />
-                </div>     
+                {/* <div className='container d-flex align-items-center'>
+                    {/* <{renderTweets()}> */}
+                {/* </div>      */}
         </div>
     );
 }
