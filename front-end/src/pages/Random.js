@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Axios from 'axios'
-import UserDescription from '../components/UserDescription/userDescription'
+import UserDescription from '../components/UserDescription/UserDescription'
 
 const Random = ({renderTweets}) => {
 
@@ -107,7 +107,7 @@ const Random = ({renderTweets}) => {
         <div className='container random-content-container'>
             <div className='col-6'>
                 <div className='container row justify-content-md-center random-container mt-5 mb-2'>
-                    <div className='card shadow-sm bg-light mt-2 mb-2'>
+                    <div className='card shadow-lg bg-light mt-2 mb-2'>
                         <div className='card-body'>
                             <h3 className='card-title mb-2'>
                                 Random

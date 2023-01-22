@@ -2,7 +2,7 @@ import React from 'react';
 
 const Navbar = () => {
     return(
-        <nav className ='navbar navbar-light bg-light shadow-sm'>
+        <nav className ='navbar navbar-light bg-light shadow-lg'>
             <ul className='nav'>
                 <li className='nav-item active'></li>
                     <a href='/' className='nav-link'>
