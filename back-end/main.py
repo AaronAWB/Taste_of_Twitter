@@ -19,8 +19,8 @@ search_params = {
 }
 
 random_params = {
-    'Count': '1',
-    'Tweet_Mode': 'extended'
+    'count': '1',
+    'tweet_mode': 'extended'
 }
 
 app = Flask(__name__)
@@ -34,12 +34,12 @@ def search_tweets_handle(handle):
 
 @app.route('/api/tweets/keyword_search/<keyword>', methods=['GET'])
 def search_tweets_keyword(keyword):
-    response = requests.get(tweetUrl+keyword+'&count=10', headers=headers, params=search_params).json()
+    response = requests.get(tweetUrl+keyword, headers=headers, params=search_params).json()
     return response
 
 @app.route('/api/tweets/random/<handle>', methods=['GET'])
 def search_tweets_random(handle):
-    response = requests.get(tweetUrl+'from:'+handle, headers=headers).json()
+    response = requests.get(tweetUrl+'from:'+handle, headers=headers, params=random_params).json()
     return response
 
 @app.route('/api/profiles/<screen_name>', methods=['GET'])

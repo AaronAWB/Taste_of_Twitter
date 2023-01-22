@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react'
+import Axios from 'axios'
 
 import Headshot from '../components/Headshot/Headshot';
 import Tweet from '../components/Tweet/Tweet';
@@ -9,7 +10,7 @@ const Random = ({getProfileData, profiles}) => {
 
     const getRandomTweet = async () => {
         const profile = getRandomProfile();
-        let path = `/api/tweets/random/${profile}`
+        let path = `http://127.0.0.1:5000/api/tweets/random/${profile}`
         try {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;
@@ -105,7 +106,7 @@ const Random = ({getProfileData, profiles}) => {
                             <h3 className='card-title mb-2'>
                                 Random
                             </h3>
-                            <button className='btn btn-info form-control'>
+                            <button className='btn btn-info form-control' onClick={getRandomTweet}>
                                 Display Random Tweet
                             </button>
                         </div>
