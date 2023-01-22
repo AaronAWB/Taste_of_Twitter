@@ -13,7 +13,8 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
         try {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;
-            setRandomTweet(tweetResults)
+            const randomTweetResult = tweetResults[getRandomNumber(tweetResults.length)]
+            setRandomTweet([randomTweetResult])
         }
         catch(error) {
             console.log(error)
@@ -21,12 +22,12 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
     }
 
     const getRandomProfile = () => {
-        const randomProfile = favoriteProfiles[getRandomNumber()].handle;
+        const randomProfile = favoriteProfiles[getRandomNumber(5)].handle;
         return randomProfile
     }
 
-    const getRandomNumber = () => {
-        return Math.floor(Math.random()*5)
+    const getRandomNumber = (max) => {
+        return Math.floor(Math.random()*max)
     }
 
 

@@ -15,12 +15,12 @@ headers = {
 
 search_params = {
     'count': '10',
-    'tweet_mode': 'extended'
+    'tweet_mode': 'extended',
 }
 
 random_params = {
-    'count': '1',
-    'tweet_mode': 'extended'
+    'tweet_mode': 'extended',
+    'result_type': 'mixed'
 }
 
 app = Flask(__name__)
