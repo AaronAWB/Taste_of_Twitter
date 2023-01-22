@@ -51,7 +51,7 @@ function App() {
           <Routes>
             <Route path='/' element={<Home />}></Route>
             <Route path='/search' element={<Search renderTweets={renderTweets}/>}></Route>
-            <Route path='/random' element={<Random getTweets={renderTweets}/>}></Route>
+            <Route path='/random' element={<Random renderTweets={renderTweets}/>}></Route>
           </Routes>
         </div>
       </div>

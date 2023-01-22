@@ -2,9 +2,8 @@ import React, {useState, useEffect} from 'react'
 import Axios from 'axios'
 
 import Headshot from '../components/Headshot/Headshot';
-import Tweet from '../components/Tweet/Tweet';
 
-const Random = ({getProfileData, profiles}) => {
+const Random = ({renderTweets, getProfileData, profiles}) => {
 
     const [randomTweet, setRandomTweet] = useState([])
 
@@ -112,10 +111,10 @@ const Random = ({getProfileData, profiles}) => {
                         </div>
                     </div>
                 </div>
-            </div>
-                {/* <div className='container d-flex align-items-center'>
-                    {/* <{renderTweets()}> */}
-                {/* </div>      */}
+                <div className='container row d-flex justify-content-md-center '>
+                    {renderTweets(randomTweet)}
+                </div> 
+            </div>    
         </div>
     );
 }
