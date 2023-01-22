@@ -1,14 +1,37 @@
 import React from 'react'
 import { useState } from 'react'
+import Axios from 'axios'
 
-const Search = ({getTweets, renderTweets}) => {
+const Search = ({renderTweets}) => {
 
     const [userSearch, setUserSearch] = useState('');
+    const [tweets, setTweets] = useState([]);
+
+    const baseURL = 'http://127.0.0.1:5000/api/tweets/'
+
+    const getTweets = async (userSearch) => {
+      
+        let path = baseURL;
+      
+        userSearch.startsWith('@') 
+        ? path = baseURL+'handle_search/'+userSearch
+        : path = baseURL+'keyword_search/'+userSearch
+  
+        try {
+            const response = await Axios.get(path);
+            const tweetResults = response.data.statuses;
+            setTweets(tweetResults)
+            console.log(tweetResults)
+        }
+        catch(error) {
+            console.log(error)
+        }
+    }
     
     const handleSubmit = (e) => {
         e.preventDefault();
         getTweets(userSearch);
-        renderTweets();
+        renderTweets(tweets);
     };
 
     return (
@@ -38,7 +61,7 @@ const Search = ({getTweets, renderTweets}) => {
                     </div>
                 </div>
                 <div className ='container row justify-content-md-center results-container mb-2'>
-                    {renderTweets()}
+                    {renderTweets(tweets)}
                 </div>
             </div>
         </div> 
