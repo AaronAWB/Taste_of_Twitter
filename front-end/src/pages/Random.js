@@ -1,12 +1,11 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState} from 'react'
 import Axios from 'axios'
+import UserDescription from '../components/UserDescription/userDescription'
 
-import Headshot from '../components/Headshot/Headshot';
-
-const Random = ({renderTweets, getProfileData, profiles}) => {
+const Random = ({renderTweets}) => {
 
     const [randomTweet, setRandomTweet] = useState([])
-
+    
     const getRandomTweet = async () => {
         const profile = getRandomProfile();
         let path = `http://127.0.0.1:5000/api/tweets/random/${profile}`
@@ -15,6 +14,7 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
             const tweetResults = response.data.statuses;
             const randomTweetResult = tweetResults[getRandomNumber(tweetResults.length)]
             setRandomTweet([randomTweetResult])
+            console.log(randomTweet)
         }
         catch(error) {
             console.log(error)
@@ -23,6 +23,7 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
 
     const getRandomProfile = () => {
         const randomProfile = favoriteProfiles[getRandomNumber(5)].handle;
+        console.log(randomProfile)
         return randomProfile
     }
 
@@ -30,22 +31,26 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
         return Math.floor(Math.random()*max)
     }
 
+    const renderUserDescription = () => {
+        return randomTweet.map((tweet, i) => (
+            <UserDescription
+            key = {i}
+            name={tweet.user.name}
+            description={tweet.user.description}
+            />
+        ));    
+      }
 
-
-    // useEffect (() => {
-    //     getProfileData();
-    // }, [])
-
-    // const getProfileData = () => {
-
-    //     return favoriteProfiles.map((favoriteProfile) => {
-    //         const screenName = favoriteProfile.screen_name;
-    //         const apiPath = `http://127.0.0.1:5000/api/profiles/${screenName}`
-    //         const response = Axios.get(apiPath);
-    //         const profileData = response;
-    //         console.log(profileData)
-    //         setProfiles([...profiles, profileData])
-    //     })
+    // const getProfileDescription = async (user) => {
+    //     let path = `http://127.0.0.1:5000/api/profiles/${user}`
+    //     try {
+    //         const response = await Axios.get(path);
+    //         const description = response.description
+    //         console.log(description)
+    //     }
+    //     catch(error) {
+    //         console.log(error)
+    //     }
     //   }
 
     const favoriteProfiles = [
@@ -55,8 +60,8 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
             'screen_name': 'levarburton'
         },
         {
-            'name': 'Alie Ward',
-            'handle': '@alieward',
+            'name': 'Philip Pullman',
+            'handle': '@philippullman',
             'screen_name': 'alieward'
         },
         {
@@ -75,6 +80,12 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
             'screen_name': 'senatorcantwell'
         },
     ]
+
+    // const renderDescription = (user) => {
+    //     return (<p>{getProfileDescription(user)}</p>)
+    // }
+     
+   
     
     // const renderFavoriteProfiles = () => {
     //     return profiles.map((profile, i) => {
@@ -93,11 +104,6 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
     
     return (
         
-        //     {/* <div className='container d-flex align-items-center'>
-        //         <div className='row'>
-        //             {renderFavoriteProfiles()}
-        //         </div>
-        //     </div> */}
         <div className='container random-content-container'>
             <div className='col-6'>
                 <div className='container row justify-content-md-center random-container mt-5 mb-2'>
@@ -106,6 +112,16 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
                             <h3 className='card-title mb-2'>
                                 Random
                             </h3>
+                            <p className='mb-2'>
+                                Get a random recent tweet from one of my five favorite profiles:
+                            </p>
+                            <h6>
+                                LevarBurton
+                            </h6>
+                            <p>
+                                {/* {renderDescription('levarburton')} */}
+                            </p>
+
                             <button className='btn btn-info form-control' onClick={getRandomTweet}>
                                 Display Random Tweet
                             </button>
@@ -114,7 +130,10 @@ const Random = ({renderTweets, getProfileData, profiles}) => {
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
                     {renderTweets(randomTweet)}
-                </div> 
+                </div>
+                <div className='container row d-flex justify-content-md-center '>
+                    {renderUserDescription(randomTweet)}
+                </div>  
             </div>    
         </div>
     );

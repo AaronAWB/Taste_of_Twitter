@@ -42,9 +42,9 @@ def search_tweets_random(handle):
     response = requests.get(tweetUrl+'from:'+handle, headers=headers, params=random_params).json()
     return response
 
-@app.route('/api/profiles/<screen_name>', methods=['GET'])
-def search_profiles(screen_name):
-    response = requests.get(profileUrl+screen_name, headers=headers).json()
+@app.route('/api/profiles/<handle>', methods=['GET'])
+def search_profiles(handle):
+    response = requests.get(profileUrl+handle, headers=headers).json()
     return response
 
 # @app.errorhandler(404)
