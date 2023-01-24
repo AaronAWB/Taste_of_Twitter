@@ -61,10 +61,14 @@ const Random = ({renderTweets}) => {
                                 Random
                             </h3>
                             <p className='mb-2'>
-                                Get a random recent tweet from one of my five favorite users:
+                                Get a random recent tweet frome one of these five users:
                             </p>
-                            <h6>
-                                LevarBurton | Philip Pullman | Seattle Sounders FC | Thoughts of Dog
+                            <h6 className='mt-3 mb-4'>
+                                LevarBurton <span className='text-info'> | </span>
+                                Philip Pullman <span className='text-info'> | </span>
+                                Seattle Sounders FC <span className='text-info'> | </span>
+                                Thoughts of Dog <span className='text-info'> | </span>
+                                NASA 
                             </h6>
                             <button className='btn btn-info form-control' onClick={getRandomTweet}>
                                 Get a random Tweet!
@@ -77,7 +81,7 @@ const Random = ({renderTweets}) => {
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
                     {renderUserDescription(randomTweet)}
-                </div>  
+                </div>
             </div>    
         </div>
     );
