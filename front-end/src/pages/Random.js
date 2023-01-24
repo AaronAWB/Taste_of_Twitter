@@ -7,11 +7,12 @@ const Random = ({renderTweets}) => {
     const [randomTweet, setRandomTweet] = useState([])
     
     const getRandomTweet = async () => {
-        const profile = getRandomProfile();
+        const profile = getRandomUser();
         let path = `http://127.0.0.1:5000/api/tweets/random/${profile}`
         try {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;
+            console.log(tweetResults)
             const randomTweetResult = tweetResults[getRandomNumber(tweetResults.length)]
             setRandomTweet([randomTweetResult])
             console.log(randomTweet)
@@ -21,10 +22,10 @@ const Random = ({renderTweets}) => {
         }
     }
 
-    const getRandomProfile = () => {
-        const randomProfile = favoriteProfiles[getRandomNumber(5)].handle;
-        console.log(randomProfile)
-        return randomProfile
+    const getRandomUser = () => {
+        const randomUser = favoriteUsers[getRandomNumber(5)];
+        console.log(randomUser)
+        return randomUser
     }
 
     const getRandomNumber = (max) => {
@@ -41,67 +42,14 @@ const Random = ({renderTweets}) => {
         ));    
       }
 
-    // const getProfileDescription = async (user) => {
-    //     let path = `http://127.0.0.1:5000/api/profiles/${user}`
-    //     try {
-    //         const response = await Axios.get(path);
-    //         const description = response.description
-    //         console.log(description)
-    //     }
-    //     catch(error) {
-    //         console.log(error)
-    //     }
-    //   }
-
-    const favoriteProfiles = [
-        {
-            'name': 'Levar Burton',
-            'handle': '@levarburton',
-            'screen_name': 'levarburton'
-        },
-        {
-            'name': 'Philip Pullman',
-            'handle': '@philippullman',
-            'screen_name': 'alieward'
-        },
-        {
-            'name': 'Seattle Sounders FC',
-            'handle': '@SoundersFC',
-            'screen_name': 'soundersfc'
-        },
-        {
-            'name': 'Eric Idle',
-            'handle': '@Ericidle',
-            'screen_name': 'ericidle'
-        },
-        {
-            'name': 'Senator Maria Cantwell',
-            'handle': '@SenatorCantwell',
-            'screen_name': 'senatorcantwell'
-        },
+    const favoriteUsers = [
+        '@levarburton',
+        '@philippullman',
+        '@soundersfc',
+        '@dog_feelings',
+        '@nasa'
     ]
 
-    // const renderDescription = (user) => {
-    //     return (<p>{getProfileDescription(user)}</p>)
-    // }
-     
-   
-    
-    // const renderFavoriteProfiles = () => {
-    //     return profiles.map((profile, i) => {
-    //         return(
-    //             <div className='container mt-5 col' key={i}>
-    //                 <Headshot
-    //                     Name={profile.data.name}
-    //                     Source={profile.data.profile_image_url_https}
-    //                     Description={profile.data.description}
-    //                     Alt={profile.username}
-    //                     />
-    //             </div>
-    //         )
-    //     })
-    // }
-    
     return (
         
         <div className='container random-content-container'>
@@ -113,17 +61,13 @@ const Random = ({renderTweets}) => {
                                 Random
                             </h3>
                             <p className='mb-2'>
-                                Get a random recent tweet from one of my five favorite profiles:
+                                Get a random recent tweet from one of my five favorite users:
                             </p>
                             <h6>
-                                LevarBurton
+                                LevarBurton | Philip Pullman | Seattle Sounders FC | Thoughts of Dog
                             </h6>
-                            <p>
-                                {/* {renderDescription('levarburton')} */}
-                            </p>
-
                             <button className='btn btn-info form-control' onClick={getRandomTweet}>
-                                Display Random Tweet
+                                Get a random Tweet!
                             </button>
                         </div>
                     </div>
