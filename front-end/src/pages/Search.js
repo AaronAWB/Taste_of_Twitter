@@ -22,6 +22,7 @@ const Search = ({renderTweets}) => {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;
             setTweets(tweetResults)
+            setUserHasSearched(true)
         }
         catch(error) {
             console.log(error)
@@ -32,7 +33,6 @@ const Search = ({renderTweets}) => {
         e.preventDefault();
         getTweets(userSearch);
         renderTweets(tweets);
-        setUserHasSearched(true)
     };
 
     const renderSearchResults = () => {
