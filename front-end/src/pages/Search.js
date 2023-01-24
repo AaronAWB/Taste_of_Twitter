@@ -34,6 +34,17 @@ const Search = ({renderTweets}) => {
         renderTweets(tweets);
     };
 
+    const renderSearchResults = () => {
+        if (tweets.length === 0) {
+            return (
+                <div class="alert alert-info shadow-lg mt-4" role="alert">
+                No recent tweets match your search!
+                </div>
+            )
+        }
+        return renderTweets(tweets)
+    }
+
     return (
         <div className='container search-content-container'> 
             <div className='col-6'>
@@ -61,7 +72,7 @@ const Search = ({renderTweets}) => {
                     </div>
                 </div>
                 <div className ='container row justify-content-md-center results-container mb-2'>
-                    {renderTweets(tweets)}
+                    {renderSearchResults()}
                 </div>
             </div>
         </div> 

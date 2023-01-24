@@ -12,10 +12,8 @@ const Random = ({renderTweets}) => {
         try {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;
-            console.log(tweetResults)
             const randomTweetResult = tweetResults[getRandomNumber(tweetResults.length)]
             setRandomTweet([randomTweetResult])
-            console.log(randomTweet)
         }
         catch(error) {
             console.log(error)
@@ -24,7 +22,6 @@ const Random = ({renderTweets}) => {
 
     const getRandomUser = () => {
         const randomUser = favoriteUsers[getRandomNumber(5)];
-        console.log(randomUser)
         return randomUser
     }
 
