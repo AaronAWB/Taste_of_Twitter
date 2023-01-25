@@ -27,14 +27,23 @@ const Home = () => {
                         <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
                             <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
                                     <div className='card-body button-card'>
-                                        <h3 className='card-title mb-2'>
-                                        Search by Handle or Keyword
-                                        </h3>
-                                        <p>
-                                            Search all of Twitter by Handle or Keyword! 
-                                            The ten most recent Tweets matching your search will be displayed -
-                                            No need to use Twitter or even have a Twitter account!
-                                        </p>
+                                        <div className='card-image-container'>
+                                            <img 
+                                                src={Random_Image}
+                                                alt='Random tweet image'
+                                                className='img-thumbnail rounded shadow-sm card-image'
+                                                width='200px'
+                                                height='200px'
+                                            ></img>
+                                        </div>
+                                        <div className='card-text-container'>
+                                            <h3 className='card-title mb-2'>
+                                                Search
+                                            </h3>
+                                            <p>
+                                                Search for ten recent tweets from any Twitter user of your choice by @handle or keyword!
+                                            </p>
+                                        </div>
                                     </div>
                             </div>
                         </Link>

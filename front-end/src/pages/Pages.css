@@ -5,6 +5,7 @@ body {
 .homepage-card {
     transition: all 0.3s;
     width: 600px !important;
+    height: 200px !important;
     cursor: pointer;
 }
 
