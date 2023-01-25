@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Pages.css'
-import Main_Image from '../assets/images/Twitter_1.jpg';
+import Random_Image from '../assets/images/Twitter_1.jpg';
 
 const Home = () => {
     return (  
@@ -9,13 +9,6 @@ const Home = () => {
                 <div className='col'>
                     <div className='card shadow-lg bg-light mt-2 mb-2'>
                         <div className='card-body'>
-                                <img 
-                                    src={Main_Image}
-                                    alt='Header image'
-                                    className='img-thumbnail rounded-circle shadow-sm'
-                                    width='200px'
-                                    height='200px'
-                                ></img>
                                 <h1 className='card-title mb-2'>
                                     My Twitter Showcase App
                                 </h1>
@@ -33,7 +26,7 @@ const Home = () => {
                     <div className='container search-container'>
                         <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
                             <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
-                                    <div className='card-body'>
+                                    <div className='card-body button-card'>
                                         <h3 className='card-title mb-2'>
                                         Search by Handle or Keyword
                                         </h3>
@@ -50,10 +43,24 @@ const Home = () => {
                 <div className='col-6'>
                     <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
                         <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
-                                <div className='card-body'>
-                                    <h3 className='card-title mb-2'>
-                                        <span className='material-symbols-rounded'>shuffle</span> 
-                                    </h3>
+                                <div className='card-body button-card'>
+                                    <div className='card-image-container'>
+                                        <img 
+                                            src={Random_Image}
+                                            alt='Random tweet image'
+                                            className='img-thumbnail rounded shadow-sm card-image'
+                                            width='200px'
+                                            height='200px'
+                                        ></img>
+                                    </div>
+                                    <div className='card-text-container'>
+                                        <h3 className='card-title mb-2'>
+                                            Random
+                                        </h3>
+                                        <p>
+                                            Get a random tweet from one of 5 users!
+                                        </p>
+                                    </div>
                                 </div>
                         </div>
                     </Link>
