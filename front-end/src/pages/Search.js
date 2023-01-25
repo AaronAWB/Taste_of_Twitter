@@ -32,13 +32,12 @@ const Search = ({renderTweets}) => {
     const handleSubmit = (e) => {
         e.preventDefault();
         getTweets(userSearch);
-        renderTweets(tweets);
     };
 
     const renderSearchResults = () => {
         if (tweets.length === 0 && userHasSearched == true) {
             return (
-                <div class="alert alert-info shadow-lg mt-4" role="alert">
+                <div className="alert alert-info shadow-lg mt-4" role="alert">
                 No recent tweets match your search!
                 </div>
             )

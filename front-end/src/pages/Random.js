@@ -5,19 +5,36 @@ import UserDescription from '../components/UserDescription/UserDescription'
 const Random = ({renderTweets}) => {
 
     const [randomTweet, setRandomTweet] = useState([])
-    
+    const [userHasClicked, setUserHasClicked] = useState(false)
+
+    const favoriteUsers = [
+        '@levarburton',
+        '@philippullman',
+        '@soundersfc',
+        '@dog_feelings',
+        '@nasa'
+    ]
+  
     const getRandomTweet = async () => {
         const profile = getRandomUser();
         let path = `http://127.0.0.1:5000/api/tweets/random/${profile}`
         try {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;
-            const randomTweetResult = tweetResults[getRandomNumber(tweetResults.length)]
+            const randomTweetResult = randomizeTweet(tweetResults)
             setRandomTweet([randomTweetResult])
+            setUserHasClicked(true)
         }
         catch(error) {
             console.log(error)
         }
+    }
+
+    const randomizeTweet = (tweetResults) => {
+        if (tweetResults.length === 0) {
+            return []
+        }
+        return tweetResults[getRandomNumber(tweetResults.length)]
     }
 
     const getRandomUser = () => {
@@ -29,23 +46,29 @@ const Random = ({renderTweets}) => {
         return Math.floor(Math.random()*max)
     }
 
-    const renderUserDescription = () => {
-        return randomTweet.map((tweet, i) => (
-            <UserDescription
-            key = {i}
-            name={tweet.user.name}
-            description={tweet.user.description}
-            />
-        ));    
-      }
+    const renderRandomTweet = () => {
+        if (randomTweet.length === 0 && userHasClicked == true) {
+            return (
+                <div className="alert alert-info shadow-lg mt-4" role="alert">
+                This user hasn't tweeted recently - try again soon!
+                </div>
+            )
+        }
+        return renderTweets(randomTweet)
+    }
 
-    const favoriteUsers = [
-        '@levarburton',
-        '@philippullman',
-        '@soundersfc',
-        '@dog_feelings',
-        '@nasa'
-    ]
+    const renderUserDescription = () => {
+        if (randomTweet.length !== 0) {
+            return randomTweet.map((tweet, i) => (
+                <UserDescription
+                key = {i}
+                name={tweet.user.name}
+                description={tweet.user.description}
+                />
+            ));
+        }
+        return <></>    
+      }
 
     return (
         
@@ -68,13 +91,13 @@ const Random = ({renderTweets}) => {
                                 NASA 
                             </h6>
                             <button className='btn btn-info form-control' onClick={getRandomTweet}>
-                                Get a random Tweet!
+                                Show me a random tweet!
                             </button>
                         </div>
                     </div>
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
-                    {renderTweets(randomTweet)}
+                    {renderRandomTweet()}
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
                     {renderUserDescription(randomTweet)}

@@ -35,7 +35,7 @@ const Home = () => {
                             <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
                                     <div className='card-body'>
                                         <h3 className='card-title mb-2'>
-                                            Search by Handle or Keyword
+                                        Search by Handle or Keyword
                                         </h3>
                                         <p>
                                             Search all of Twitter by Handle or Keyword! 
@@ -48,16 +48,15 @@ const Home = () => {
                     </div>
                 </div>
                 <div className='col-6'>
-                    
-                        <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
-                                    <div className='card-body'>
-                                        <h3 className='card-title mb-2'>
-                                            Random Search
-                                        </h3>
-                                    </div>
-                            </div>
-                        </Link>
+                    <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
+                        <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
+                                <div className='card-body'>
+                                    <h3 className='card-title mb-2'>
+                                        <span className='material-symbols-rounded'>shuffle</span> 
+                                    </h3>
+                                </div>
+                        </div>
+                    </Link>
                 </div>
             </div>
         </div>
