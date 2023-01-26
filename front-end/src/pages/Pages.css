@@ -1,5 +1,5 @@
 body {
-    background-image: linear-gradient(to right, rgb(115, 191, 238), rgb(255, 255, 255));
+    background-image: linear-gradient(to right, rgb(29 161 242), rgb(255, 255, 255));
 }
 
 h3 {
@@ -11,6 +11,7 @@ h3 {
     width: 600px !important;
     height: 185px !important;
     cursor: pointer;
+    background-color: rgb(29 161 242) !important;
 }
 
 .homepage-card:hover {
@@ -30,6 +31,8 @@ h3 {
 .button-card {
     display: flex;
     color: white !important;
+    background-color: rgb(29 161 242);
+    border-color: rgb(29 161 242);
 }
 
 .card-image-container {
@@ -43,6 +46,11 @@ h3 {
 
 .btn {
     color: white !important;
+    background-color: rgb(29 161 242) !important;
+}
+
+.divider {
+    color:rgb(29 161 242);
 }
 
 

@@ -84,13 +84,13 @@ const Random = ({renderTweets}) => {
                                 Get a random recent tweet frome one of these five users:
                             </p>
                             <h6 className='mt-3 mb-4'>
-                                LevarBurton <span className='text-info'> | </span>
-                                Philip Pullman <span className='text-info'> | </span>
-                                Seattle Sounders FC <span className='text-info'> | </span>
-                                Thoughts of Dog <span className='text-info'> | </span>
+                                LevarBurton <span className='divider'> | </span>
+                                Philip Pullman <span className='divider'> | </span>
+                                Seattle Sounders FC <span className='divider'> | </span>
+                                Thoughts of Dog <span className='divider'> | </span>
                                 NASA 
                             </h6>
-                            <button className='btn btn-info form-control' onClick={getRandomTweet}>
+                            <button className='btn form-control' onClick={getRandomTweet}>
                                 Show me a random tweet!
                             </button>
                         </div>

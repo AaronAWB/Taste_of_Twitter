@@ -5,7 +5,7 @@ import './Tweet.css'
 const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favorites}) => {
 
     return(
-        <div className='card tweet-card border-info shadow-lg mb-2 mt-2'>
+        <div className='card tweet-card shadow-lg mb-2 mt-2'>
             <div className ='card-body tweet-body'>
                 
                     <div className='profile-image'>

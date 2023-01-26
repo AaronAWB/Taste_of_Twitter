@@ -26,8 +26,8 @@ const Home = () => {
                 <div className='col-6'>
                     <div className='container search-container'>
                         <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <div className='card homepage-card shadow-lg text-bg-info mt-2 mb-2'>
-                                <div className='card-body button-card text-bg-info'>
+                            <div className='card homepage-card shadow-lg mt-2 mb-2'>
+                                <div className='card-body button-card'>
                                     <div className='card-image-container'>
                                         <img 
                                             src={Search_Image}
@@ -50,7 +50,7 @@ const Home = () => {
                 </div>
                 <div className='col-6'>
                     <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <div className='card homepage-card shadow-lg text-bg-info mt-2 mb-2'>
+                        <div className='card homepage-card shadow-lg mt-2 mb-2'>
                             <div className='card-body button-card'>
                                 <div className='card-image-container'>
                                     <img 

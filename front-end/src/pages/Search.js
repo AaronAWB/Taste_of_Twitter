@@ -64,7 +64,7 @@ const Search = ({renderTweets}) => {
                                     required
                                 >
                                 </input>
-                                <button className='btn btn-info form-control' type='submit'>
+                                <button className='btn form-control' type='submit'>
                                     Search
                                 </button>
                             </form>
