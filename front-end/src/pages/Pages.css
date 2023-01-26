@@ -27,9 +27,9 @@ body {
     display: flex;
 }
 
-.card-image-container {
-    height: 400px;
-    width: 400px;
+.card-image {
+    height: 150px !important;
+    width: 150px !important;
 }
 
 .btn {

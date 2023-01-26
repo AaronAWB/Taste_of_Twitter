@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import './Pages.css'
 import Random_Image from '../assets/images/Twitter_1.jpg';
+import Search_Image from '../assets/images/Search.jpg'
 
 const Home = () => {
     return (  
@@ -25,15 +26,13 @@ const Home = () => {
                 <div className='col-6'>
                     <div className='container search-container'>
                         <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
-                                    <div className='card-body button-card'>
+                            <div className='card homepage-card shadow-lg text-bg-info mt-2 mb-2'>
+                                    <div className='card-body button-card text-bg-info'>
                                         <div className='card-image-container'>
                                             <img 
-                                                src={Random_Image}
-                                                alt='Random tweet image'
+                                                src={Search_Image}
+                                                alt='Search image'
                                                 className='img-thumbnail rounded shadow-sm card-image'
-                                                width='200px'
-                                                height='200px'
                                             ></img>
                                         </div>
                                         <div className='card-text-container'>
@@ -51,15 +50,13 @@ const Home = () => {
                 </div>
                 <div className='col-6'>
                     <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <div className='card homepage-card shadow-lg bg-light mt-2 mb-2'>
+                        <div className='card homepage-card shadow-lg text-bg-info mt-2 mb-2'>
                                 <div className='card-body button-card'>
                                     <div className='card-image-container'>
                                         <img 
                                             src={Random_Image}
                                             alt='Random tweet image'
-                                            className='img-thumbnail rounded shadow-sm card-image'
-                                            width='200px'
-                                            height='200px'
+                                            className='img-thumbnail rounded-circle shadow-sm card-image'
                                         ></img>
                                     </div>
                                     <div className='card-text-container'>
