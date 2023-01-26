@@ -60,7 +60,7 @@ const Home = () => {
                                     ></img>
                                 </div>
                                 <div className='card-text-container'>
-                                    <h3 className='card-title text-muted mt-4 mb-2'>
+                                    <h3 className='card-title mt-4 mb-2'>
                                         Random
                                     </h3>
                                     <p>

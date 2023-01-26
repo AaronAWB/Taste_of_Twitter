@@ -7,7 +7,7 @@ const UserDescription = ({name, description}) => {
             <div className ='card-body description-body'>
                 <div className='description-content'>
                     <div className='col'>
-                        <h6 className='card-title text-muted row description-container mb-3'>
+                        <h6 className='card-title row description-container description-name mb-3'>
                             About {name}
                         </h6>
                         <p className='card-text row description-container'>
