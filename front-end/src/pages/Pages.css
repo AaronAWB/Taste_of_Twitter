@@ -5,7 +5,7 @@ body {
 .homepage-card {
     transition: all 0.3s;
     width: 600px !important;
-    height: 200px !important;
+    height: 185px !important;
     cursor: pointer;
 }
 
@@ -28,15 +28,13 @@ body {
 }
 
 .card-image-container {
-    padding-right: 20px;
+    height: 400px;
+    width: 400px;
 }
 
 .btn {
     color: white !important;
 }
 
-.material-symbols-rounded {
-    font-size: 30px;
-}
 
   
