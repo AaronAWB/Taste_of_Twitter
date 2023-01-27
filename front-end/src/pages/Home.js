@@ -32,10 +32,10 @@ const Home = () => {
                                         <img 
                                             src={Search_Image}
                                             alt='Search image'
-                                            className='img-thumbnail rounded shadow-sm card-image'
+                                            className='img-thumbnail rounded-circle shadow-sm card-image'
                                         ></img>
                                     </div>
-                                    <div className='card-text-container'>
+                                    <div className='card-text-container mt-4'>
                                         <h3 className='card-title mb-2'>
                                             Search
                                         </h3>

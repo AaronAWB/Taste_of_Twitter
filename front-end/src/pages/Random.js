@@ -12,7 +12,7 @@ const Random = ({renderTweets}) => {
         '@philippullman',
         '@soundersfc',
         '@dog_feelings',
-        '@nasa'
+        '@@hofswitzerland'
     ]
   
     const getRandomTweet = async () => {
@@ -89,7 +89,7 @@ const Random = ({renderTweets}) => {
                                     Philip Pullman <span className='divider'> | </span>
                                     Seattle Sounders FC <span className='divider'> | </span>
                                     Thoughts of Dog <span className='divider'> | </span>
-                                    NASA 
+                                    House of Switzerland
                                 </h6>
                             </div>
                             <button className='btn form-control' onClick={getRandomTweet}>
