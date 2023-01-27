@@ -6,9 +6,19 @@ h3 {
     color: darkblue
 }
 
+.header-container {
+    display: flex;
+    justify-content: center;
+    padding-top: 30px;
+}
+
+.header-card {
+    border: rgb(29 161 242) !important;
+    width: 1,200px !important;
+}
+
 .button-card-container {
     display: flex;
-    border: solid yellow 2px;
     align-items: center;
     justify-content: center;
     padding: 30px;
@@ -33,6 +43,10 @@ h3 {
     justify-content: center;
 }
 
+.search-card-title, .random-card-title {
+    color: rgb(226, 100, 15) !important;
+}
+
 .search-content-container, .random-content-container {
     display: flex;
     justify-content: center;
@@ -45,12 +59,10 @@ h3 {
 
 .card-image-container {
     width: 180px;
-    border: green solid 2px;
 }
 
 .card-text-container {
     width: 400px;
-    border: red solid 2px;
 }
 
 .card-image {
@@ -67,13 +79,11 @@ h3 {
     background-color: rgb(29 161 242) !important;
 }
 
-.search-card-title, .random-card-title {
-    color: rgb(226, 100, 15) !important;
-}
-
-.divider {
+.divider, .handle {
     color:rgb(29 161 242);
 }
+
+
 
 
   

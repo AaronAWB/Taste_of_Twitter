@@ -56,8 +56,8 @@ const Search = ({renderTweets}) => {
                                     Search
                                 </h3>
                                 <p>
-                                    Search for ten recent tweets from any Twitter user by @handle
-                                    or search all recent tweets by key word or phrase.
+                                    Search for ten recent tweets from any Twitter user by <span className='handle'>@handle </span>
+                                    or from all users by key word or phrase.
                                 </p>
                             </div>
                             <form onSubmit={handleSubmit}>

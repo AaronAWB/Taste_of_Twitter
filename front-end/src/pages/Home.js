@@ -2,24 +2,30 @@ import { Link } from 'react-router-dom';
 import './Pages.css'
 import Random_Image from '../assets/images/Twitter_1.jpg';
 import Search_Image from '../assets/images/Search.jpg'
+import Header_Image from '../assets/images/Header.jpg'
 
 const Home = () => {
     return (  
         <div className='container'>
-            
-                    <div className='card shadow-lg bg-light mt-2 mb-2'>
-                        <div className='card-body'>
-                                <h1 className='card-title mb-2'>
-                                    My Twitter Showcase App
-                                </h1>
-                                <p>
-                                    This is an App that allows you to do two things:
-                                    1.  Search by Twitter Handle or Keyword to display 10 tweets; or
-                                    2.  Search for a random recent tweet from one of 5 pre-selected accounts.
-                                </p>
+                    <div className='header-container'>
+                        <div className='card header-card shadow-lg mt-2 mb-2'>
+                            <img 
+                                src={Header_Image} 
+                                class="card-img" 
+                                alt="sky image">
+                            </img>
+                            <div className='card-body card-img-overlay'>
+                                    <h1 className='card-title mb-2'>
+                                        Twitter Showcase
+                                    </h1>
+                                    <p>
+                                        This is an App that allows you to do two things:
+                                        1.  Search by Twitter Handle or Keyword to display 10 tweets; or
+                                        2.  Search for a random recent tweet from one of 5 pre-selected accounts.
+                                    </p>
+                            </div>
                         </div>
                     </div>
-            
                     <div className='button-card-container'>
 
                         <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
@@ -37,7 +43,8 @@ const Home = () => {
                                             Search
                                         </h3>
                                         <p>
-                                            Search for ten recent tweets from any Twitter user of your choice by @handle or keyword!
+                                            Search for ten recent tweets from any Twitter 
+                                            user of your choice by handle, key word, or phrase!
                                         </p>
                                     </div>
                                 </div>
