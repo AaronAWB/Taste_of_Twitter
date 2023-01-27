@@ -6,8 +6,7 @@ import Search_Image from '../assets/images/Search.jpg'
 const Home = () => {
     return (  
         <div className='container'>
-            <div className='row'>
-                <div className='col'>
+            
                     <div className='card shadow-lg bg-light mt-2 mb-2'>
                         <div className='card-body'>
                                 <h1 className='card-title mb-2'>
@@ -20,15 +19,13 @@ const Home = () => {
                                 </p>
                         </div>
                     </div>
-                </div>
-            </div>
-            <div className='row'>
-                <div className='col-6'>
-                    <div className='container search-container'>
+            
+                    <div className='button-card-container'>
+
                         <Link to={'/search'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                            <div className='card homepage-card shadow-lg mt-2 mb-2'>
-                                <div className='card-body button-card'>
-                                    <div className='card-image-container'>
+                            <div className='card button-card shadow-lg mt-2 mb-2'>
+                                <div className='button-card-body'>
+                                    <div className='card-image-container mt-3'>
                                         <img 
                                             src={Search_Image}
                                             alt='Search image'
@@ -46,13 +43,11 @@ const Home = () => {
                                 </div>
                             </div>
                         </Link>
-                    </div>
-                </div>
-                <div className='col-6'>
+                    
                     <Link to={'/random'} style={{ textDecoration: 'none', color: 'inherit' }}>
-                        <div className='card homepage-card shadow-lg mt-2 mb-2'>
-                            <div className='card-body button-card'>
-                                <div className='card-image-container'>
+                        <div className='card button-card shadow-lg mt-2 mb-2'>
+                            <div className='button-card-body'>
+                                <div className='card-image-container mt-3'>
                                     <img 
                                         src={Random_Image}
                                         alt='Random tweet image'
@@ -70,8 +65,9 @@ const Home = () => {
                             </div>
                         </div>
                     </Link>
+
                 </div>
-            </div>
+            
         </div>
     );
 }
