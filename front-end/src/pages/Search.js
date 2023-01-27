@@ -51,13 +51,18 @@ const Search = ({renderTweets}) => {
                 <div className='container row justify-content-md-center search-container mt-5 mb-2'>
                     <div className='card shadow-lg bg-light mt-2 mb-2'>
                         <div className='card-body'>
-                            <h3 className='card-title mb-2'>
-                                Search
-                            </h3>
+                            <div className='card-text'>
+                                <h3 className='card-title search-card-title mb-2'>
+                                    Search
+                                </h3>
+                                <p>
+                                    Search all recent tweets by Twitter @handle or keyword.
+                                </p>
+                            </div>
                             <form onSubmit={handleSubmit}>
                                 <input
                                     type='text'
-                                    placeholder='Search by Twitter Handle or Keyword...'
+                                    placeholder='e.g. "@levarburton" by handle or "LeVar Burton" by keyword...'
                                     className='form-control input-lg mb-3'
                                     onChange={(e) => setUserSearch(e.target.value)}
                                     value={userSearch}

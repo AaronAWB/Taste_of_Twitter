@@ -76,20 +76,22 @@ const Random = ({renderTweets}) => {
             <div className='col-6'>
                 <div className='container row justify-content-md-center random-container mt-5 mb-2'>
                     <div className='card shadow-lg bg-light mt-2 mb-2'>
-                        <div className='card-body'>
-                            <h3 className='card-title mb-2'>
-                                Random
-                            </h3>
-                            <p className='mb-2'>
-                                Get a random recent tweet frome one of these five users:
-                            </p>
-                            <h6 className='mt-3 mb-4'>
-                                LevarBurton <span className='divider'> | </span>
-                                Philip Pullman <span className='divider'> | </span>
-                                Seattle Sounders FC <span className='divider'> | </span>
-                                Thoughts of Dog <span className='divider'> | </span>
-                                NASA 
-                            </h6>
+                        <div className='card-body random-card-body'>
+                            <div className='card-text'>
+                                <h3 className='card-title random-card-title mb-2'>
+                                    Random Tweet
+                                </h3>
+                                <p className='mb-2'>
+                                    Get a random recent tweet frome one of these five great Twitter users:
+                                </p>
+                                <h6 className='mt-3 mb-4'>
+                                    LeVar Burton <span className='divider'> | </span>
+                                    Philip Pullman <span className='divider'> | </span>
+                                    Seattle Sounders FC <span className='divider'> | </span>
+                                    Thoughts of Dog <span className='divider'> | </span>
+                                    NASA 
+                                </h6>
+                            </div>
                             <button className='btn form-control' onClick={getRandomTweet}>
                                 Show me a random tweet!
                             </button>
