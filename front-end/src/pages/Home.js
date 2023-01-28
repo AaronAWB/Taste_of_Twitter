@@ -51,10 +51,6 @@ const Home = () => {
                                         <h3 className='card-title mb-2'>
                                             Search
                                         </h3>
-                                        <p>
-                                            Search for ten recent tweets from any Twitter 
-                                            user of your choice by handle, key word, or phrase!
-                                        </p>
                                     </div>
                                 </div>
                             </div>
@@ -74,9 +70,6 @@ const Home = () => {
                                         <h3 className='card-title mt-4 mb-2'>
                                             Random
                                         </h3>
-                                        <p>
-                                            Get a random tweet from one of 5 users!
-                                        </p>
                                     </div>
                                 </div>
                             </div>

@@ -22,7 +22,7 @@ body {
 
 .main-header {
     font-size: 55px;
-    color: darkblue;
+    color: white;
 }
 
 .header-image-container {
@@ -36,19 +36,10 @@ body {
     width: 100%
 }
 
-h3 {
-    color: darkblue
-}
-
-.header-card-body {
-    display: flex;
-    /* align-items: center;
-    justify-content: center; */
-}
-
 .header-text {
     text-align: justify;
     color: darkblue;
+    font-size: medium;
 }
 
 .button-card-container {
@@ -89,12 +80,14 @@ h3 {
     margin: 20px;
 }
 
-.card-image-container {
+/* .card-image-container {
     width: 180px;
-}
+} */
 
 .card-text-container {
     width: 400px;
+    display: flex;
+    align-items: center;
 }
 
 .card-image {
