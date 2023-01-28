@@ -18,16 +18,20 @@ const Home = () => {
                                 </img>
                             </div>
                             <div className='card-body card-img-overlay header-card-body'>
+                                <div className='main-header-container'>
                                     <h1 className='card-title main-header mb-2'>
                                         Taste of Twitter
                                     </h1>
+                                </div>
+                                <div className='header-text-container'>
                                     <p>
-                                        Enjoy a small a small does of Twitter.
+                                        Enjoy a small bit of Twitter.
                                         Search for recent tweets by user or keyword,
                                         or explore random tweets from five
                                         great pre-selected users. All without ever
                                         logging in to your account.
                                     </p>
+                                </div>
                             </div>
                         </div>
                     </div>
