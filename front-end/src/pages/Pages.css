@@ -2,17 +2,15 @@ body {
     background-image: linear-gradient(to right, rgb(29 161 242), rgb(255, 255, 255));
 }
 
-.row {
-    border: solid purple 2px;
-}
-
-.col {
-    border: solid orange 2px;
-}
-
-/* .header-container {
+.home-page-container {
     border: solid red 2px;
-} */
+    display: flex;
+}
+
+.header-container {
+    border: solid blue 2px;
+    width: 630px;
+}
 
 .header-card {
     border: rgb(29 161 242) !important;
@@ -26,7 +24,7 @@ body {
 .header-image-container {
     height: 500px;
     width: 400px;
-    border: solid green 2px;
+    /* border: solid green 2px; */
 }
 
 .header-image {
@@ -46,9 +44,8 @@ h3 {
 
 .button-card-container {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 30px;
+    flex-direction: column;
+    border: solid green 2px;
 }
 
 .button-card {

@@ -6,9 +6,8 @@ import Header_Image from '../assets/images/Orange.jpg'
 
 const Home = () => {
     return (  
-        <div className='container'>
-            
-                
+        <div className='container home-page-container'>
+
                     <div className='header-container'>
                         <div className='card header-card shadow-lg mt-2 mb-2'>
                             <div className='header-image-container'>
