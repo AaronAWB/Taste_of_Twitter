@@ -47,12 +47,5 @@ def search_profiles(handle):
     response = requests.get(profileUrl+handle, headers=headers).json()
     return response
 
-# @app.errorhandler(404)
-# def not_found():
-#     """Page not found."""
-#     return make_response(render_template("404.html"), 404)
-
 if __name__ == '__main__':
     app.run(debug=True)
-
-# http://127.0.0.1:5000
