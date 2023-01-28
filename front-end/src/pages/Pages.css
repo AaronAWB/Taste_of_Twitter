@@ -52,7 +52,6 @@ body {
     cursor: pointer;
     background-color: rgb(29 161 242) !important;
     display: flex;
-    color: white !important;
     height: 185px !important;
 }
 
@@ -66,8 +65,10 @@ body {
     justify-content: center;
 }
 
-.search-card-title, .random-card-title {
-    color: rgb(226, 100, 15) !important;
+.button-card-text {
+    color: white;
+    padding-left: 40px;
+    font-size: 35px;
 }
 
 .search-content-container, .random-content-container {

@@ -48,7 +48,7 @@ const Home = () => {
                                         ></img>
                                     </div>
                                     <div className='card-text-container mt-4'>
-                                        <h3 className='card-title mb-2'>
+                                        <h3 className='card-title mb-2 button-card-text'>
                                             Search
                                         </h3>
                                     </div>
@@ -67,7 +67,7 @@ const Home = () => {
                                         ></img>
                                     </div>
                                     <div className='card-text-container'>
-                                        <h3 className='card-title mt-4 mb-2'>
+                                        <h3 className='card-title button-card-text mt-4 mb-2'>
                                             Random
                                         </h3>
                                     </div>
