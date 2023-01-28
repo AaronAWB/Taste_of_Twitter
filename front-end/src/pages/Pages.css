@@ -2,24 +2,46 @@ body {
     background-image: linear-gradient(to right, rgb(29 161 242), rgb(255, 255, 255));
 }
 
+.row {
+    border: solid purple 2px;
+}
+
+.col {
+    border: solid orange 2px;
+}
+
+/* .header-container {
+    border: solid red 2px;
+} */
+
+.header-card {
+    border: rgb(29 161 242) !important;
+}
+
+.main-header {
+    font-size: 60px;
+    color: darkblue;
+}
+
+.header-image-container {
+    height: 500px;
+    width: 400px;
+    border: solid green 2px;
+}
+
+.header-image {
+    height: auto;
+    width: 100%
+}
+
 h3 {
     color: darkblue
 }
 
-.header-container {
-    display: flex;
-    justify-content: center;
-    padding-top: 30px;
-}
-
-.header-card {
-    border: rgb(29 161 242) !important;
-    width: 1,200px !important;
-}
-
-.header-card-body{
+.header-card-body {
     display: flex;
     align-items: center;
+    justify-content: center;
 }
 
 .button-card-container {
