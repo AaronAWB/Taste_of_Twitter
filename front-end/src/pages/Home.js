@@ -14,7 +14,7 @@ const Home = () => {
                                 class="card-img" 
                                 alt="sky image">
                             </img>
-                            <div className='card-body card-img-overlay'>
+                            <div className='card-body card-img-overlay header-card-body'>
                                     <h1 className='card-title mb-2'>
                                         Twitter Showcase
                                     </h1>

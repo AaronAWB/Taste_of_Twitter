@@ -17,6 +17,11 @@ h3 {
     width: 1,200px !important;
 }
 
+.header-card-body{
+    display: flex;
+    align-items: center;
+}
+
 .button-card-container {
     display: flex;
     align-items: center;
