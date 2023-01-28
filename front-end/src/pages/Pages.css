@@ -28,7 +28,6 @@ body {
 .header-image-container {
     height: 500px;
     width: 400px;
-    /* border: solid green 2px; */
 }
 
 .header-image {
@@ -81,10 +80,6 @@ body {
     margin: 20px;
 }
 
-/* .card-image-container {
-    width: 180px;
-} */
-
 .card-text-container {
     width: 400px;
     display: flex;
@@ -98,6 +93,10 @@ body {
 
 .card-text {
     text-align: center;
+}
+
+.random-card-title, .search-card-title {
+    color: rgb(226, 100, 15)
 }
 
 .btn {

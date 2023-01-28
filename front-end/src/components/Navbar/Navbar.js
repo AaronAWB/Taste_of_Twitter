@@ -1,12 +1,17 @@
 import React from 'react';
 import './Navbar.css'
-
+import Orange_Icon from '../../assets/icons/orange.png'
 const Navbar = () => {
     return(
         <nav className ='navbar navbar-light bg-light shadow-lg'>
             <div className="container">
                 <a className="navbar-brand">
-                    <img src="/docs/5.3/assets/brand/bootstrap-logo.svg" alt="Taste of Twitter" width="30" height="24"></img>
+                    <img 
+                    src={Orange_Icon} 
+                    alt='Taste of Twitter' 
+                    width='50' 
+                    height='50'
+                    ></img>
                 </a>
             </div>
             <ul className='nav'>
