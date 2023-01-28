@@ -46,6 +46,11 @@ h3 {
     justify-content: center; */
 }
 
+.header-text {
+    text-align: justify;
+    color: darkblue;
+}
+
 .button-card-container {
     display: flex;
     flex-direction: column;
