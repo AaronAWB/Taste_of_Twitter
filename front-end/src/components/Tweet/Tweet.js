@@ -37,7 +37,7 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                             >
                             </img>
                             <p className='retweets-count'>
-                                {retweets}
+                                <span className='retweets-text'>{retweets}</span>
                             </p>
                             <img
                                 src={Like_Icon}
@@ -47,7 +47,7 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                             >
                             </img>
                             <p className='favorites-count'>
-                                {favorites}
+                            <span className='favorites-text'>{favorites}</span>
                             </p>
                         </div>
                     </div>
