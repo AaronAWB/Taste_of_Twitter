@@ -1,4 +1,19 @@
+.container-fluid {
+    border: solid blue 2px;
+    justify-content: start !important;
+}
+
+.nav {
+    border: solid yellow 2px;
+}
+
+.navbar-brand {
+    border: solid green 2px;
+}
+
 a {
     color: rgb(226, 100, 15) !important;
+    font-size: 18px !important;
 }
+
     
