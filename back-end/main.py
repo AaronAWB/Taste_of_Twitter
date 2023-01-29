@@ -27,7 +27,7 @@ random_params = {
     'result_type': 'mixed'
 }
 
-app = Flask(__name__)
+app = Flask(__name__, static_folder='./build', static_url_path='/')
 api = Api(app)
 cors= CORS(app, resources={r'/api/*': {'origins:': '*'}})
 
@@ -45,6 +45,14 @@ def search_tweets_keyword(keyword):
 def search_tweets_random(handle):
     response = requests.get(tweetUrl+'from:'+handle, headers=headers, params=random_params).json()
     return response
+
+@app.route('/', defaults={'path': ''})
+@app.route('/<string:path>')
+def index(path):
+    try:
+        return app.send_static_file(path)
+    except:
+        return app.send_statis_file("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
