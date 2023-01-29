@@ -25,7 +25,7 @@ const Home = () => {
                                 </div>
                                 <div className='header-text-container'>
                                     <p className='header-text'> 
-                                        Enjoy Twitter in small doses.
+                                        Enjoy Twitter in small bites.
                                         Search for recent tweets by user or keyword,
                                         or explore random tweets from five
                                         great pre-selected users. All without ever
