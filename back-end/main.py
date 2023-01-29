@@ -2,10 +2,14 @@ import requests
 from flask import Flask
 from flask_restful import Api
 from flask_cors import CORS
-from keys import API_BEARER_TOKEN
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+
+API_BEARER_TOKEN = os.getenv('API_BEARER_TOKEN')
 
 tweetUrl = 'https://api.twitter.com/1.1/search/tweets.json?q='
-profileUrl = 'https://api.twitter.com/1.1/users/lookup.json?screen_name='
 
 headers = {
     'Content-Type': 'application/json',
@@ -40,11 +44,6 @@ def search_tweets_keyword(keyword):
 @app.route('/api/tweets/random/<handle>', methods=['GET'])
 def search_tweets_random(handle):
     response = requests.get(tweetUrl+'from:'+handle, headers=headers, params=random_params).json()
-    return response
-
-@app.route('/api/profiles/<handle>', methods=['GET'])
-def search_profiles(handle):
-    response = requests.get(profileUrl+handle, headers=headers).json()
     return response
 
 if __name__ == '__main__':
