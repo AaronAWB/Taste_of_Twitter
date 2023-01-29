@@ -49,7 +49,6 @@ body {
 .button-card {
     transition: all 0.3s;
     cursor: pointer;
-    background-color: rgb(29 161 242) !important;
     display: flex;
     height: 185px !important;
 }
@@ -65,7 +64,7 @@ body {
 }
 
 .button-card-text {
-    color: white;
+    color: rgb(226, 100, 15);
     padding-left: 40px;
     font-size: 35px;
 }
@@ -96,7 +95,7 @@ body {
 }
 
 .random-card-title, .search-card-title {
-    color: rgb(226, 100, 15)
+    color: rgb(226, 100, 15);
 }
 
 .btn {
