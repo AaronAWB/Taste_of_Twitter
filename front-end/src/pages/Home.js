@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
 import './Pages.css'
-import Random_Image from '../assets/images/Twitter_1.jpg';
+import Random_Image from '../assets/images/Twitter_1.jpg'
 import Search_Image from '../assets/images/Search.jpg'
 import Header_Image from '../assets/images/Orange.jpg'
 
