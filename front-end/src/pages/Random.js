@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 import Axios from 'axios'
-import UserDescription from './components/UserDescription/UserDescription'
+import UserDescription from './../components/UserDescription/UserDescription'
 
 const Random = ({renderTweets}) => {
 
