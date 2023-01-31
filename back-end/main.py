@@ -52,7 +52,7 @@ def index(path):
     try:
         return app.send_static_file(path)
     except:
-        return app.send_statis_file("index.html")
+        return app.send_static_file("index.html")
 
 if __name__ == '__main__':
     app.run(debug=True)
