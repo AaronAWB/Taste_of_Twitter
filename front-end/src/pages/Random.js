@@ -12,7 +12,7 @@ const Random = ({renderTweets}) => {
         '@philippullman',
         '@soundersfc',
         '@dog_feelings',
-        '@@hofswitzerland'
+        '@hofswitzerland'
     ]
   
     const getRandomTweet = async () => {
