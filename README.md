@@ -12,8 +12,19 @@ Users can search for recent tweets by a specific Twitter user or all recent twee
 
 Users can return a random recent tweet from one of five pre-selected Twitter users: LeVar Burton, Philip Pullman, Seattle Sounders FC, Thoughts of Dog, and House of Switzerland.
 
-
 ## Summary
 
-Taste of Twitter was a capstone project for the Software Development Mastermind program.
+Taste of Twitter was a capstone project for the Software Development Mastermind program and my first full-stack web application.
+
+The front-end is a client built using React and styled using Bootstrap 5 that allows the user to navigate between pages using React Router library. The user can return and display tweets returned from Twitter API v1.1. API calls are routed through a Python-based internal API built using the Flask framework at the back-end.
+
+## Skills Developed
+
+* React.js
+* The React Router library
+* Python
+* The Flask Python framework
+* REST API authentication, headers, queries, and CORS policy parameters
+* Credential masking using Python dotenv
+
 
