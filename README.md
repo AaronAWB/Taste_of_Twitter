@@ -16,7 +16,7 @@ Users can return a random recent tweet from one of five pre-selected Twitter use
 
 Taste of Twitter was a capstone project for the Software Development Mastermind program and my first full-stack web application.
 
-The front-end is a client built using React and styled using Bootstrap 5 that allows the user to navigate between pages using the React Router library. The user can search all recent tweets by user handle or keyword - or display a tweet from one of five pre-selected twitter users - fetched from Twitter API v1.1. API calls are routed through a Python-based internal API built using the Flask framework at the back-end.
+The front-end is a client built using React and styled using Bootstrap 5 that allows the user to navigate between pages using the React Router library. The user can search all recent tweets by user handle or keyword - or display a tweet from one of five pre-selected twitter users - pulled from Twitter API v1.1. API calls are routed through a Python-based internal API built using the Flask framework at the back-end.
 
 ## Skills Developed
 
