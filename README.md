@@ -27,4 +27,6 @@ The front-end is a client built using React and styled using Bootstrap 5 that al
 * REST API authentication, headers, queries, and CORS policy parameters
 * Credential masking using Python dotenv
 
+## Author
 
+Aaron Brinckerhoff | Software Developer
