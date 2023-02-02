@@ -29,7 +29,7 @@ random_params = {
 
 app = Flask(__name__, static_folder='./build', static_url_path='/')
 api = Api(app)
-cors= CORS(app, resources={r'/api/*': {'origins:': '*'}})
+cors = CORS(app, resources={r'/api/*': {'origins:': '*'}})
 
 @app.route('/api/tweets/handle_search/<handle>', methods=['GET'])
 def search_tweets_handle(handle):
