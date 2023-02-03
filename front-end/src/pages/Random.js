@@ -17,7 +17,7 @@ const Random = ({renderTweets}) => {
   
     const getRandomTweet = async () => {
         const profile = getRandomUser();
-        let path = `http://127.0.0.1:5000/api/tweets/random/${profile}`
+        let path = `/api/tweets/random/${profile}`
         try {
             const response = await Axios.get(path);
             const tweetResults = response.data.statuses;

@@ -8,7 +8,7 @@ const Search = ({renderTweets}) => {
     const [tweets, setTweets] = useState([]);
     const [userHasSearched, setUserHasSearched] = useState(false);
 
-    const baseURL = 'http://127.0.0.1:5000/api/tweets/'
+    const baseURL = '/api/tweets/'
 
     const getTweets = async (userSearch) => {
       
