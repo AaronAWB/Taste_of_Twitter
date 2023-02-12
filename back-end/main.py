@@ -1,23 +1,6 @@
-import os
 import requests
 
 from src import create_app
-
-load_dotenv()
-
-API_BEARER_TOKEN = os.getenv('API_BEARER_TOKEN')
-
-tweetUrl = 'https://api.twitter.com/1.1/search/tweets.json?q='
-
-search_params = {
-    'count': '10',
-    'tweet_mode': 'extended',
-}
-
-random_params = {
-    'tweet_mode': 'extended',
-    'result_type': 'mixed'
-}
 
 app = create_app()
 
