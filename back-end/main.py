@@ -1,21 +1,13 @@
-import requests
-from flask import Flask
-from flask_restful import Api
-from flask_cors import CORS
-from dotenv import load_dotenv
 import os
+import requests
+
+from src import create_app
 
 load_dotenv()
 
 API_BEARER_TOKEN = os.getenv('API_BEARER_TOKEN')
 
 tweetUrl = 'https://api.twitter.com/1.1/search/tweets.json?q='
-
-headers = {
-    'Content-Type': 'application/json',
-    'Accept': 'application/json',
-    'Authorization': f'Bearer {API_BEARER_TOKEN}'
-}
 
 search_params = {
     'count': '10',
@@ -27,9 +19,7 @@ random_params = {
     'result_type': 'mixed'
 }
 
-app = Flask(__name__, static_folder='./build', static_url_path='/')
-api = Api(app)
-cors = CORS(app, resources={r'/api/*': {'origins:': '*'}})
+app = create_app()
 
 @app.route('/api/tweets/handle_search/<handle>', methods=['GET'])
 def search_tweets_handle(handle):
