@@ -3,7 +3,7 @@ from flask import Blueprint
 
 from src.lib.twitter_api import twitter_api
 
-tweets_bp = Blueprint('tweets', __name__, url_prexif = '/tweets')
+tweets_bp = Blueprint('tweets', __name__, url_prefix = '/tweets')
 api = Api(tweets_bp)
 
 @api.route('/handle_search/<handle>')
