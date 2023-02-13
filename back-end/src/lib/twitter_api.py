@@ -16,7 +16,7 @@ class TwitterAPI():
         self.full_url = 'https://api.twitter.com/1.1/search/tweets.json?q='
         self.search_params = {
             'count': '10',
-            'tweet_mode': 'extended',
+            'tweet_mode': 'extended'
             }
         self.random_params = {
             'tweet_mode': 'extended',
@@ -25,17 +25,17 @@ class TwitterAPI():
 
     def search_tweets_handle(self, handle):
         url = self.full_url + handle
-        resp = self.session.get(url, self.search_params)
+        resp = self.session.get(url, params = self.search_params)
         return resp.json()
 
     def search_tweets_keyword(self, keyword):
         url = self.full_url + keyword
-        resp = self.session.get(url, self.search_params)
+        resp = self.session.get(url, params = self.search_params)
         return resp.json()
 
     def get_random_tweet(self, handle):
         url = self.full_url + handle
-        resp = self.session.get(url, self.random_params)
+        resp = self.session.get(url, params = self.random_params)
         return resp.json()
 
-twitterAPI = TwitterAPI()
+twitter_api = TwitterAPI()
