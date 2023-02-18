@@ -24,7 +24,7 @@ class TwitterAPI():
             }
 
     def search_tweets_handle(self, handle):
-        url = self.full_url + handle
+        url = self.full_url + 'from:' + handle
         resp = self.session.get(url, params = self.search_params)
         return resp.json()
 
@@ -34,7 +34,7 @@ class TwitterAPI():
         return resp.json()
 
     def get_random_tweet(self, handle):
-        url = self.full_url + handle
+        url = self.full_url + 'from:' + handle
         resp = self.session.get(url, params = self.random_params)
         return resp.json()
 
