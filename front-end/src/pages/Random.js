@@ -1,8 +1,9 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import Axios from 'axios'
 import UserDescription from '../components/UserDescription/UserDescription'
+import { renderTweets } from '../components/Tweet/utils'
 
-const Random = ({renderTweets}) => {
+const Random = () => {
 
     const [randomTweet, setRandomTweet] = useState([])
     const [userHasClicked, setUserHasClicked] = useState(false)
