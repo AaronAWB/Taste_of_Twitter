@@ -3,48 +3,37 @@ import Axios from 'axios'
 import UserDescription from '../components/UserDescription/UserDescription'
 import { renderTweets } from '../components/Tweet/utils'
 
+const FAVORITE_USERS = [
+    '@levarburton',
+    '@philippullman',
+    '@soundersfc',
+    '@dog_feelings',
+    '@hofswitzerland'
+]
+
+const getRandomArrayItem = (array) => {
+    return array.length > 0 
+    ? [Math.floor(Math.random() * array.length)]
+    : [];
+}
+
 const Random = () => {
 
     const [randomTweet, setRandomTweet] = useState([])
     const [userHasClicked, setUserHasClicked] = useState(false)
 
-    const favoriteUsers = [
-        '@levarburton',
-        '@philippullman',
-        '@soundersfc',
-        '@dog_feelings',
-        '@hofswitzerland'
-    ]
-  
     const getRandomTweet = async () => {
-        const profile = getRandomUser();
-        let path = `/api/tweets/random/${profile}`
+        let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS)}`
         try {
-            const response = await Axios.get(path);
-            const tweetResults = response.data.statuses;
-            const randomTweetResult = randomizeTweet(tweetResults)
+            const resp = await Axios.get(path);
+            const tweetResults = resp.data.statuses;
+            const randomTweetResult = getRandomArrayItem(tweetResults)
             setRandomTweet([randomTweetResult])
             setUserHasClicked(true)
         }
         catch(error) {
             console.log(error)
         }
-    }
-
-    const randomizeTweet = (tweetResults) => {
-        if (tweetResults.length === 0) {
-            return []
-        }
-        return tweetResults[getRandomNumber(tweetResults.length)]
-    }
-
-    const getRandomUser = () => {
-        const randomUser = favoriteUsers[getRandomNumber(5)];
-        return randomUser
-    }
-
-    const getRandomNumber = (max) => {
-        return Math.floor(Math.random()*max)
     }
 
     const renderRandomTweet = () => {
