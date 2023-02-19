@@ -2,7 +2,7 @@ import Retweet_Icon from '../../assets/icons/retweet.png';
 import Like_Icon from '../../assets/icons/like.png'
 import './Tweet.css'
 
-const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favorites}) => {
+const Tweet = ({tweet}) => {
 
     return(
         <div className='card tweet-card shadow-lg mb-2 mt-2'>
@@ -10,7 +10,7 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                 
                     <div className='profile-image'>
                         <img 
-                            src={profile_picture}
+                            src={tweet.profile_picture}
                             alt='profile picture'
                             className='rounded-circle'
                             >
@@ -18,15 +18,15 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                     </div>
                     <div className='tweet-content'>
                         <h5 className='card-title mb-3'>
-                            {name} 
+                            {tweet.name} 
                             <span className='handle text-muted'> @{handle} </span> 
-                            <span className='date text-muted'>{date} </span>
+                            <span className='date text-muted'>{renderDate(tweet.created_at)} </span>
                         </h5>
                         <p className='mb-3'>
-                            {text}
+                            {tweet.full_text}
                         </p>
                         <div className='mb-3'>
-                            {image}
+                            {renderTweetImage(tweet)}
                         </div>
                         <div className='d-flex'>
                             <img
@@ -37,7 +37,7 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                             >
                             </img>
                             <p className='retweets-count'>
-                                <span className='retweets-text'>{retweets}</span>
+                                <span className='retweets-text'>{tweet.retweets}</span>
                             </p>
                             <img
                                 src={Like_Icon}
@@ -47,7 +47,7 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
                             >
                             </img>
                             <p className='favorites-count'>
-                            <span className='favorites-text'>{favorites}</span>
+                            <span className='favorites-text'>{tweet.favorites}</span>
                             </p>
                         </div>
                     </div>
@@ -55,6 +55,25 @@ const Tweet = ({profile_picture, name, handle, date, text, image, retweets, favo
             </div>
         </div>
     )
+      
 }
 
 export default Tweet;
+
+const renderTweetImage = (tweet) => {
+    if (tweet.hasOwnProperty('extended_entities')) {
+      return (
+      <img 
+        src={tweet.extended_entities.media[0].media_url}
+        className='tweet-image rounded'
+        />
+      );
+    }
+    return <></>;
+  }
+
+const remderDate = (date) => {
+    const monthAndDay= date.slice(4,10)
+    const year = date.slice(25,30)
+    return `${monthAndDay}, ${year}`
+  }

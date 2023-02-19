@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import Axios from 'axios'
+import { renderTweets } from '../components/Tweet/utils'
 
-const Search = ({renderTweets}) => {
+const Search = () => {
 
     const [userSearch, setUserSearch] = useState('');
     const [tweets, setTweets] = useState([]);
