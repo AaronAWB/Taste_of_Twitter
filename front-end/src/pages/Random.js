@@ -47,19 +47,6 @@ const Random = () => {
         return renderTweets(randomTweet)
     }
 
-    const renderUserDescription = () => {
-        if (randomTweet.length !== 0) {
-            return randomTweet.map((tweet, i) => (
-                <UserDescription
-                key = {i}
-                name={tweet.user.name}
-                description={tweet.user.description}
-                />
-            ));
-        }
-        return <></>    
-      }
-
     return (
         
         <div className='container random-content-container'>
@@ -92,7 +79,7 @@ const Random = () => {
                     {renderRandomTweet()}
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
-                    {renderUserDescription(randomTweet)}
+                    <UserDescription user={randomTweet.user} />
                 </div>
             </div>    
         </div>
