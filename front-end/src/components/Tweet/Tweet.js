@@ -19,7 +19,7 @@ const Tweet = ({tweet}) => {
                     <div className='tweet-content'>
                         <h5 className='card-title mb-3'>
                             {tweet.name} 
-                            <span className='handle text-muted'> @{handle} </span> 
+                            <span className='handle text-muted'> @{tweet.user.screen_name} </span> 
                             <span className='date text-muted'>{renderDate(tweet.created_at)} </span>
                         </h5>
                         <p className='mb-3'>
@@ -72,7 +72,7 @@ const renderTweetImage = (tweet) => {
     return <></>;
   }
 
-const remderDate = (date) => {
+const renderDate = (date) => {
     const monthAndDay= date.slice(4,10)
     const year = date.slice(25,30)
     return `${monthAndDay}, ${year}`

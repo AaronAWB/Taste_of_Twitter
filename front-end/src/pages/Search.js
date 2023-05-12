@@ -20,8 +20,8 @@ const Search = () => {
         : path = baseURL+'keyword_search/'+userSearch
   
         try {
-            const response = await Axios.get(path);
-            const tweetResults = response.data.statuses;
+            const resp = await Axios.get(path);
+            const tweetResults = resp.data.statuses;
             setTweets(tweetResults)
             setUserHasSearched(true)
         }
