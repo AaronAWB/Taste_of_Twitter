@@ -13,9 +13,9 @@ const FAVORITE_USERS = [
 
 const getRandomArrayItem = (array) => {
     return array.length > 0 
-    ? Math.floor(Math.random() * array.length)
-    : [];
-}
+      ? array[Math.floor(Math.random() * array.length)]
+      : [];
+  }
 
 const Random = () => {
 
@@ -23,13 +23,13 @@ const Random = () => {
     const [userHasClicked, setUserHasClicked] = useState(false)
 
     const getRandomTweet = async () => {
-        let path = `/api/tweets/random/${FAVORITE_USERS[getRandomArrayItem(FAVORITE_USERS)]}`
+        let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS)}`
         try {
             const resp = await Axios.get(path);
             const tweetResults = resp.data.statuses;
-            console.log(tweetResults)
+            console.log(`tweetResults (i.e. resp.data.statuses): ${tweetResults}`)
             const randomTweetResult = getRandomArrayItem(tweetResults)
-            console.log(randomTweetResult)
+            console.log(`randomTweetResult: ${randomTweetResult}`)
             setRandomTweet([randomTweetResult])
             setUserHasClicked(true)
         }
@@ -39,8 +39,7 @@ const Random = () => {
     }
 
     const renderRandomTweet = () => {
-        console.log(randomTweet)
-        {randomTweet && <UserDescription user={randomTweet.user} />}
+        console.log(`randomTweet: ${randomTweet}`)
         if (randomTweet.length === 0 && userHasClicked === true) {
             return (
                 <div className="alert alert-info shadow-lg mt-4" role="alert">
