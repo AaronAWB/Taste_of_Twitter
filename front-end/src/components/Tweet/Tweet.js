@@ -10,7 +10,7 @@ const Tweet = ({tweet}) => {
                 
                     <div className='profile-image'>
                         <img 
-                            src={tweet.profile_picture}
+                            src={tweet.user.profile_image_url_https}
                             alt='profile picture'
                             className='rounded-circle'
                             >
@@ -18,7 +18,7 @@ const Tweet = ({tweet}) => {
                     </div>
                     <div className='tweet-content'>
                         <h5 className='card-title mb-3'>
-                            {tweet.name} 
+                            {tweet.user.name} 
                             <span className='handle text-muted'> @{tweet.user.screen_name} </span> 
                             <span className='date text-muted'>{renderDate(tweet.created_at)} </span>
                         </h5>
@@ -37,7 +37,7 @@ const Tweet = ({tweet}) => {
                             >
                             </img>
                             <p className='retweets-count'>
-                                <span className='retweets-text'>{tweet.retweets}</span>
+                                <span className='retweets-text'>{tweet.retweet_count}</span>
                             </p>
                             <img
                                 src={Like_Icon}
@@ -47,7 +47,7 @@ const Tweet = ({tweet}) => {
                             >
                             </img>
                             <p className='favorites-count'>
-                            <span className='favorites-text'>{tweet.favorites}</span>
+                            <span className='favorites-text'>{tweet.favorite_count}</span>
                             </p>
                         </div>
                     </div>

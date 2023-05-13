@@ -13,7 +13,7 @@ const FAVORITE_USERS = [
 
 const getRandomArrayItem = (array) => {
     return array.length > 0 
-    ? [Math.floor(Math.random() * array.length)]
+    ? Math.floor(Math.random() * array.length)
     : [];
 }
 
@@ -27,7 +27,9 @@ const Random = () => {
         try {
             const resp = await Axios.get(path);
             const tweetResults = resp.data.statuses;
+            console.log(tweetResults)
             const randomTweetResult = getRandomArrayItem(tweetResults)
+            console.log(randomTweetResult)
             setRandomTweet([randomTweetResult])
             setUserHasClicked(true)
         }
@@ -37,6 +39,8 @@ const Random = () => {
     }
 
     const renderRandomTweet = () => {
+        console.log(randomTweet)
+        {randomTweet && <UserDescription user={randomTweet.user} />}
         if (randomTweet.length === 0 && userHasClicked === true) {
             return (
                 <div className="alert alert-info shadow-lg mt-4" role="alert">
@@ -79,7 +83,7 @@ const Random = () => {
                     {renderRandomTweet()}
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
-                    <UserDescription user={randomTweet.user} />
+                    {randomTweet && <UserDescription user={randomTweet.user} />}
                 </div>
             </div>    
         </div>
