@@ -1,6 +1,6 @@
 import './UserDescription.css'
 
-const UserDescription = ({name, description}) => {
+const UserDescription = ({user}) => {
 
     return(
         <div className='card description-card shadow-lg mb-2 mt-2'>
@@ -8,10 +8,10 @@ const UserDescription = ({name, description}) => {
                 <div className='description-content'>
                     <div className='col'>
                         <h6 className='card-title row description-container description-name mb-3'>
-                            About {name}
+                            About {user.name}
                         </h6>
                         <p className='card-text row description-container'>
-                            {description}
+                            {user.description}
                         </p>
                     </div>
                 </div>

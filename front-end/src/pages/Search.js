@@ -1,8 +1,9 @@
 import React from 'react'
 import { useState } from 'react'
 import Axios from 'axios'
+import { renderTweets } from '../components/Tweet/utils'
 
-const Search = ({renderTweets}) => {
+const Search = () => {
 
     const [userSearch, setUserSearch] = useState('');
     const [tweets, setTweets] = useState([]);
@@ -19,8 +20,8 @@ const Search = ({renderTweets}) => {
         : path = baseURL+'keyword_search/'+userSearch
   
         try {
-            const response = await Axios.get(path);
-            const tweetResults = response.data.statuses;
+            const resp = await Axios.get(path);
+            const tweetResults = resp.data.statuses;
             setTweets(tweetResults)
             setUserHasSearched(true)
         }
@@ -35,7 +36,7 @@ const Search = ({renderTweets}) => {
     };
 
     const renderSearchResults = () => {
-        if (tweets.length === 0 && userHasSearched == true) {
+        if (tweets.length === 0 && userHasSearched === true) {
             return (
                 <div className="alert alert-info shadow-lg mt-4" role="alert">
                 No recent tweets match your search!
