@@ -8,10 +8,10 @@ const UserDescription = ({user}) => {
                 <div className='description-content'>
                     <div className='col'>
                         <h6 className='card-title row description-container description-name mb-3'>
-                            {/* About {user.name} */}
+                            About {user.name}
                         </h6>
                         <p className='card-text row description-container'>
-                            {/* {user.description} */}
+                            {user.description}
                         </p>
                     </div>
                 </div>
