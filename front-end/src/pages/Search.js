@@ -39,7 +39,7 @@ const Search = () => {
         if (tweets.length === 0 && userHasSearched === true) {
             return (
                 <div className="alert alert-info shadow-lg mt-4" role="alert">
-                No recent tweets match your search!
+                    No recent tweets match your search!
                 </div>
             )
         }

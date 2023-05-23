@@ -2,9 +2,13 @@
     justify-content: start !important;
 }
 
-a {
+.nav-link {
     color: rgb(226, 100, 15) !important;
-    font-size: 18px !important;
+    font-size: 18px;
+}
+
+.nav-item.active .nav-link {
+    color: rgb(29, 161, 242) !important;
 }
 
     
