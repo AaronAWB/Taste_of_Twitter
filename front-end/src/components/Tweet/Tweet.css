@@ -37,7 +37,7 @@
 }
 
 .retweets-text {
-    color: rgb(29 161 242) !important;
+    color: rgb(29 161 242);
 }
 
 .favorites-count {
@@ -45,5 +45,5 @@
 }
 
 .favorites-text {
-    color: rgb(226, 100, 15);
+    color: rgb(29 161 242);
 }
