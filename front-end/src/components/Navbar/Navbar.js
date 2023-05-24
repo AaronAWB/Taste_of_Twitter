@@ -1,48 +1,48 @@
-import { React, useState } from 'react';
+import { React, useState, useEffect } from 'react';
+import { Link, useLocation } from 'react-router-dom';
 import './Navbar.css'
 import Orange_Icon from '../../assets/icons/orange.png'
 
 const Navbar = () => {
 
+    const location = useLocation();
     const [activeLink, setActiveLink] = useState('/');
 
-    const handleLinkClick = (link) => {
-        setActiveLink(link);
-    };
-
-
+    useEffect(() => {
+        setActiveLink(location.pathname);
+    }, [location]);
 
     return(
         <nav className ='navbar bg-light shadow-lg'>
             <div className='container-fluid'>
                 
-                <a className='navbar-brand' href='/' onClick={() => handleLinkClick('/')}>
+                <Link className='navbar-brand' to='/'>
                     <img 
                     src={Orange_Icon} 
                     alt='Taste of Twitter' 
                     width='50' 
                     height='50'
                     ></img>
-                </a>
+                </Link>
             
                 <ul className='nav'>
                     <li className={`nav-item ${activeLink === '/' ? 'active' : ''}`}>
-                        <a href='/' className='nav-link' onClick={() => handleLinkClick('/')}>
+                        <Link to='/' className='nav-link'>
                             Home
-                        </a>
+                        </Link>
                     </li>
                     <li className={`nav-item ${activeLink === '/search' ? 'active' : ''}`}>
-                        <a href='/search' className='nav-link' onClick={() => handleLinkClick('/search')}>
+                        <Link to='/search' className='nav-link'>
                             Search
-                        </a>
+                        </Link>
                     </li>
                     <li className={`nav-item ${activeLink === '/random' ? 'active' : ''}`}>
-                        <a href='/random' className='nav-link' onClick={() => handleLinkClick('/random')}>
+                        <Link to='/random' className='nav-link'>
                             Random
-                        </a>
+                        </Link>
                     </li>
                 </ul>
-            
+                
             </div>
         </nav>
     );
