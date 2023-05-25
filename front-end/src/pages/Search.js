@@ -16,7 +16,7 @@ const Search = () => {
         let path = baseURL;
 
         if (userSearch.startsWith('@')) {
-            encodedSearch = encodedURIComponent(userSearch)
+            let encodedSearch = encodeURIComponent(userSearch)
             path = baseURL+'handle_search/'+encodedSearch
         } else {
             path = baseURL+'keyword_search/'+userSearch
