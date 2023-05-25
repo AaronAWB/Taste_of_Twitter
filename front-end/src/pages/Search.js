@@ -14,11 +14,14 @@ const Search = () => {
     const getTweets = async (userSearch) => {
       
         let path = baseURL;
+
+        if (userSearch.startsWith('@')) {
+            encodedSearch = encodedURIComponent(userSearch)
+            path = baseURL+'handle_search/'+encodedSearch
+        } else {
+            path = baseURL+'keyword_search/'+userSearch
+        }
       
-        userSearch.startsWith('@') 
-        ? path = baseURL+'handle_search/'+userSearch
-        : path = baseURL+'keyword_search/'+userSearch
-  
         try {
             const resp = await Axios.get(path);
             const tweetResults = resp.data.statuses;

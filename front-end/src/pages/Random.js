@@ -20,8 +20,9 @@ const Random = () => {
 
     const getRandomTweet = async () => {
         let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS)}`
+        let encodedPath = encodeURIComponent(path)
         try {
-            const resp = await Axios.get(path);
+            const resp = await Axios.get(encodedPath);
             const tweetResults = resp.data.statuses;
             const randomTweetResult = getRandomArrayItem(tweetResults)
             setRandomTweet([randomTweetResult])
