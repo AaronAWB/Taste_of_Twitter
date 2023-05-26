@@ -24,17 +24,21 @@ const Random = () => {
         try {
             const resp = await Axios.get(encodedPath);
             const tweetResults = resp.data.statuses;
-            const randomTweetResult = getRandomArrayItem(tweetResults)
-            setRandomTweet([randomTweetResult])
-            setUserHasClicked(true)
+            setUserHasClicked(true);
+            if (tweetResults.length > 0) {
+                const randomTweetResult = getRandomArrayItem(tweetResults);
+                setRandomTweet([randomTweetResult]);
+            } else {
+                setRandomTweet([]);
+            }
         }
         catch(error) {
             console.log(error)
-        }
+        }   
     }
 
     const renderRandomTweet = () => {
-        if (randomTweet === [] && userHasClicked === true) {
+        if (randomTweet.length === 0 && userHasClicked === true) {
             return (
                 <div className="alert alert-info shadow-lg mt-4" role="alert">
                     This user hasn't tweeted recently - try again soon!
@@ -76,7 +80,9 @@ const Random = () => {
                     {renderRandomTweet()}
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
-                    {randomTweet.length > 0 && randomTweet[0].user && <UserDescription user={randomTweet[0].user} />}
+                {randomTweet.length > 0 && randomTweet[0]?.user ? (
+                    <UserDescription user={randomTweet[0].user} />
+                    ) : null}
                 </div>
             </div>    
         </div>
