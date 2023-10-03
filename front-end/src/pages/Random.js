@@ -40,7 +40,7 @@ const Random = () => {
     const renderRandomTweet = () => {
         if (randomTweet.length === 0 && userHasClicked === true) {
             return (
-                <div className="alert alert-info shadow-lg mt-4" role="alert">
+                <div className='alert alert-info shadow-lg mt-4' role='alert'>
                     This user hasn't tweeted recently - try again soon!
                 </div>
             )
