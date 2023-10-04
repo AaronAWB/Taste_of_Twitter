@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
+import { formatDate } from './utils';
 import Retweet_Icon from '../../assets/icons/retweet.png';
 import Like_Icon from '../../assets/icons/like.png'
 import './Tweet.css'
@@ -10,15 +11,10 @@ const Tweet = ({tweet}) => {
         getUserInfo(tweet)
     }, [])
 
-    useEffect(() => {
-        console.log(user)
-    }, [user])
-
     const [user, setUser] = useState({})
 
     const getUserInfo = async (tweet) => {
         const author = tweet.author_id
-        console.log(author)
         const res = await axios.get(`/api/tweets/user_info/${author}`)
         setUser(res.data.data)
     }
@@ -35,12 +31,6 @@ const Tweet = ({tweet}) => {
         return <></>;
       }
     
-    const renderDate = (date) => {
-        const monthAndDay= date.slice(4,10)
-        const year = date.slice(25,30)
-        return `${monthAndDay}, ${year}`
-      }
-
     return(
         <div className='card tweet-card shadow-lg mb-2 mt-2'>
             <div className ='card-body tweet-body'>
@@ -57,7 +47,7 @@ const Tweet = ({tweet}) => {
                         <h5 className='card-title mb-3'>
                             {user.name} 
                             <span className='handle text-muted'> @{user.username} </span> 
-                            {/* <span className='date text-muted'>{renderDate(tweet.created_at)} </span> */}
+                            <span className='date text-muted'>{formatDate(tweet.created_at)} </span>
                         </h5>
                         <p className='mb-3'>
                             {tweet.text}

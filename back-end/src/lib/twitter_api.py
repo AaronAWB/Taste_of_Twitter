@@ -17,7 +17,7 @@ class TwitterAPI():
         self.keyword_search_url = 'https://api.twitter.com/2/tweets/search/recent?query='
         self.search_params = {
             'max_results': '10',
-            'tweet.fields': 'public_metrics',
+            'tweet.fields': 'public_metrics,created_at',
             'expansions': 'attachments.media_keys,author_id'
             }
         self.user_params = {
