@@ -19,8 +19,14 @@ class KeywordSearch(Resource):
         decoded_keyword = unquote(keyword)
         return twitter_api.search_tweets_keyword(decoded_keyword)
 
-@api.route('/random/<handle>')
+@api.route('/random/<user_id>')
 class GetRandomTweet(Resource):
-    def get(self, handle):
-        decoded_handle = unquote(handle)
-        return twitter_api.get_random_tweet(decoded_handle)
+    def get(self, user_id):
+        decoded_id = unquote(user_id)
+        return twitter_api.get_random_tweet(decoded_id)
+    
+@api.route('/user_info/<user_id>')
+class GetUserInfo(Resource):
+    def get(self, user_id):
+        decoded_id = unquote(user_id)
+        return twitter_api.get_user_info(decoded_id)

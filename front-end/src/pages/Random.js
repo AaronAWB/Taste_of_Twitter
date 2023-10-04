@@ -4,11 +4,31 @@ import UserDescription from '../components/UserDescription/UserDescription'
 import { renderTweets } from '../components/Tweet/utils'
 
 const FAVORITE_USERS = [
-    '@levarburton',
-    '@philippullman',
-    '@soundersfc',
-    '@dog_feelings',
-    '@hofswitzerland'
+    {
+        name: 'LeVar Burton',
+        handle: '@levarburton',
+        user_id: 18396070
+    },
+    {
+        name: 'Philip Pullman',
+        handle: '@philippullman',
+        user_id: 2176527421
+    },
+    {
+        name: 'Seattle Sounders FC',
+        handle: '@soundersfc',
+        user_id: 80360039
+    },
+    {
+        name: 'Thoughts of Dog',
+        handle: '@dog_feelings',
+        user_id: 2247766464
+    },
+    {
+        name: 'Jon Stewart',
+        handle: '@jonstewart',
+        user_id: 1354898820400877571
+    }
 ]
 
 const getRandomArrayItem = array => array[Math.floor(Math.random() * array.length)]
@@ -19,11 +39,12 @@ const Random = () => {
     const [userHasClicked, setUserHasClicked] = useState(false)
 
     const getRandomTweet = async () => {
-        let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS)}`
+        let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS).user_id}`
         let encodedPath = encodeURIComponent(path)
         try {
             const resp = await Axios.get(encodedPath);
-            const tweetResults = resp.data.statuses;
+            const tweetResults = resp.data.data;
+            console.log(tweetResults)
             setUserHasClicked(true);
             if (tweetResults.length > 0) {
                 const randomTweetResult = getRandomArrayItem(tweetResults);
@@ -34,7 +55,7 @@ const Random = () => {
         }
         catch(error) {
             console.log(error)
-        }   
+        }  
     }
 
     const renderRandomTweet = () => {
@@ -67,7 +88,7 @@ const Random = () => {
                                     Philip Pullman <span className='divider'> | </span>
                                     Seattle Sounders FC <span className='divider'> | </span>
                                     Thoughts of Dog <span className='divider'> | </span>
-                                    House of Switzerland
+                                    Jon Stewart
                                 </h6>
                             </div>
                             <button className='btn form-control' onClick={getRandomTweet}>

@@ -16,17 +16,22 @@ class TwitterAPI():
         self.user_search_url = 'https://api.twitter.com/2/users/'
         self.keyword_search_url = 'https://api.twitter.com/2/tweets/search/recent?query='
         self.search_params = {
-            'count': '10',
-            'tweet_mode': 'extended'
+            'max_results': '10',
+            'tweet.fields': 'public_metrics',
+            'expansions': 'attachments.media_keys,author_id'
             }
-        self.random_params = {
-            'tweet_mode': 'extended',
-            'result_type': 'mixed'
-            }
-
+        self.user_params = {
+            'user.fields': 'profile_image_url,username'
+        }
+        
     def get_user_id(self, handle):
         full_url = self.id_url + handle
         resp = self.session.get(full_url)
+        return resp.json()
+    
+    def get_user_info(self, user_id):
+        full_url = self.user_search_url + user_id
+        resp = self.session.get(full_url, params = self.user_params)
         return resp.json()
 
     def search_tweets_handle(self, handle):
@@ -42,7 +47,7 @@ class TwitterAPI():
 
     def get_random_tweet(self, user_id):
         full_url = full_url = self.user_search_url + user_id + '/tweets'
-        resp = self.session.get(full_url, params = self.random_params)
+        resp = self.session.get(full_url, params = self.search_params)
         return resp.json()
 
 twitter_api = TwitterAPI()

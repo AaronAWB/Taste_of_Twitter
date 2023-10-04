@@ -1,8 +1,45 @@
+import { useState, useEffect } from 'react';
+import axios from 'axios';
 import Retweet_Icon from '../../assets/icons/retweet.png';
 import Like_Icon from '../../assets/icons/like.png'
 import './Tweet.css'
 
 const Tweet = ({tweet}) => {
+
+    useEffect(() => {
+        getUserInfo(tweet)
+    }, [])
+
+    useEffect(() => {
+        console.log(user)
+    }, [user])
+
+    const [user, setUser] = useState({})
+
+    const getUserInfo = async (tweet) => {
+        const author = tweet.author_id
+        console.log(author)
+        const res = await axios.get(`/api/tweets/user_info/${author}`)
+        setUser(res.data.data)
+    }
+    
+    const renderTweetImage = (tweet) => {
+        if (tweet.hasOwnProperty('extended_entities')) {
+          return (
+          <img 
+            src={tweet.extended_entities.media[0].media_url}
+            className='tweet-image rounded'
+            />
+          );
+        }
+        return <></>;
+      }
+    
+    const renderDate = (date) => {
+        const monthAndDay= date.slice(4,10)
+        const year = date.slice(25,30)
+        return `${monthAndDay}, ${year}`
+      }
 
     return(
         <div className='card tweet-card shadow-lg mb-2 mt-2'>
@@ -10,7 +47,7 @@ const Tweet = ({tweet}) => {
                 
                     <div className='profile-image'>
                         <img 
-                            src={tweet.user.profile_image_url_https}
+                            src={user.profile_image_url}
                             alt='profile picture'
                             className='rounded-circle'
                             >
@@ -18,12 +55,12 @@ const Tweet = ({tweet}) => {
                     </div>
                     <div className='tweet-content'>
                         <h5 className='card-title mb-3'>
-                            {tweet.user.name} 
-                            <span className='handle text-muted'> @{tweet.user.screen_name} </span> 
-                            <span className='date text-muted'>{renderDate(tweet.created_at)} </span>
+                            {user.name} 
+                            <span className='handle text-muted'> @{user.username} </span> 
+                            {/* <span className='date text-muted'>{renderDate(tweet.created_at)} </span> */}
                         </h5>
                         <p className='mb-3'>
-                            {tweet.full_text}
+                            {tweet.text}
                         </p>
                         <div className='mb-3'>
                             {renderTweetImage(tweet)}
@@ -37,7 +74,7 @@ const Tweet = ({tweet}) => {
                             >
                             </img>
                             <p className='retweets-count'>
-                                <span className='retweets-text'>{tweet.retweet_count}</span>
+                                <span className='retweets-text'>{tweet.public_metrics.retweet_count}</span>
                             </p>
                             <img
                                 src={Like_Icon}
@@ -47,7 +84,7 @@ const Tweet = ({tweet}) => {
                             >
                             </img>
                             <p className='favorites-count'>
-                            <span className='favorites-text'>{tweet.favorite_count}</span>
+                            <span className='favorites-text'>{tweet.public_metrics.like_count}</span>
                             </p>
                         </div>
                     </div>
@@ -59,21 +96,3 @@ const Tweet = ({tweet}) => {
 }
 
 export default Tweet;
-
-const renderTweetImage = (tweet) => {
-    if (tweet.hasOwnProperty('extended_entities')) {
-      return (
-      <img 
-        src={tweet.extended_entities.media[0].media_url}
-        className='tweet-image rounded'
-        />
-      );
-    }
-    return <></>;
-  }
-
-const renderDate = (date) => {
-    const monthAndDay= date.slice(4,10)
-    const year = date.slice(25,30)
-    return `${monthAndDay}, ${year}`
-  }
