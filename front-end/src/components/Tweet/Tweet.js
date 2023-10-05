@@ -20,10 +20,11 @@ const Tweet = ({tweet}) => {
     }
     
     const renderTweetImage = (tweet) => {
-        if (tweet.hasOwnProperty('extended_entities')) {
+        if (tweet.media && tweet.media.media_type === 'photo') {
           return (
           <img 
-            src={tweet.extended_entities.media[0].media_url}
+            src={tweet.media.url}
+            alt='Tweet Image'
             className='tweet-image rounded'
             />
           );
