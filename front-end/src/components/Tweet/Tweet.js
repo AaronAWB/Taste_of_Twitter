@@ -20,10 +20,10 @@ const Tweet = ({tweet}) => {
     }
     
     const renderTweetImage = (tweet) => {
-        if (tweet.media && tweet.media.media_type === 'photo') {
+        if (tweet.media_url) {
           return (
           <img 
-            src={tweet.media.url}
+            src={tweet.media_url}
             alt='Tweet Image'
             className='tweet-image rounded'
             />
