@@ -17,12 +17,12 @@ const FAVORITE_USERS = [
     {
         name: 'Seattle Sounders FC',
         handle: '@soundersfc',
-        user_id: 80360039
+        user_id: 17224076
     },
     {
-        name: 'Thoughts of Dog',
-        handle: '@dog_feelings',
-        user_id: 2247766464
+        name: 'Andrei Neagoie',
+        handle: '@andreineagoie',
+        user_id: 224115510
     },
     {
         name: 'Jon Stewart',
@@ -87,7 +87,7 @@ const Random = () => {
                                     LeVar Burton <span className='divider'> | </span>
                                     Philip Pullman <span className='divider'> | </span>
                                     Seattle Sounders FC <span className='divider'> | </span>
-                                    Thoughts of Dog <span className='divider'> | </span>
+                                    Andrei Neagoie <span className='divider'> | </span>
                                     Jon Stewart
                                 </h6>
                             </div>
