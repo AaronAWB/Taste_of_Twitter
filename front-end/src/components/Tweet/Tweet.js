@@ -9,7 +9,7 @@ const Tweet = ({tweet}) => {
 
     useEffect(() => {
         getUserInfo(tweet)
-    }, [])
+    }, [tweet])
 
     const [user, setUser] = useState({})
 
