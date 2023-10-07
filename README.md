@@ -10,13 +10,15 @@ Users can search for recent tweets by a specific Twitter user or all recent twee
 
 <img width="2259" alt="Screenshot 2023-10-07 at 2 47 54 PM" src="https://github.com/AaronAWB/Taste_of_Twitter/assets/108595340/49c820bd-ab4b-4ce1-a247-1390ef991e1f">
 
-Users can return a random recent tweet from one of five pre-selected Twitter users: LeVar Burton, Philip Pullman, Seattle Sounders FC, Thoughts of Dog, and House of Switzerland.
+Users can return a random recent tweet from one of five pre-selected Twitter users: LeVar Burton, Philip Pullman, Seattle Sounders FC, Andrei Neagoie, and Jon Stewart.
 
 ## Summary
 
 Taste of Twitter was a capstone project for the Software Development Mastermind program and my first full-stack web application.
 
 The front-end is a client built using React and styled using Bootstrap 5 that allows the user to navigate between pages using the React Router library. The user can search all recent tweets by user handle or keyword - or display a tweet from one of five pre-selected twitter users - pulled from Twitter API v1.1. API calls are routed through a Python-based internal API built using the Flask framework at the back-end.
+
+**Note:** Twitter API v1.1 was fully deprecated in September, 2023. This project has been updated to use Twitter API v2.0. Due to recent changes in developer access to the Twitter API, the random Tweet feature is now limited to 10 requests every 15 minutes. If you receive an error message, please wait 15 minutes and try again. 10/7/2023.
 
 ## Skills Developed
 
