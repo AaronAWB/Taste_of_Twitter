@@ -17,6 +17,7 @@ class HandleSearch(Resource):
 class KeywordSearch(Resource):
     def get(self, keyword):
         decoded_keyword = unquote(keyword)
+        print(decoded_keyword)
         return twitter_api.search_tweets_keyword(decoded_keyword)
 
 @api.route('/random/<user_id>')

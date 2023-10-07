@@ -16,7 +16,8 @@ const Search = () => {
         let path = baseURL;
 
         if (userSearch.startsWith('@')) {
-            let encodedSearch = encodeURIComponent(userSearch)
+            let userName = userSearch.slice(1)
+            let encodedSearch = encodeURIComponent(userName)
             path = baseURL+'handle_search/'+encodedSearch
         } else {
             path = baseURL+'keyword_search/'+userSearch
@@ -24,7 +25,7 @@ const Search = () => {
       
         try {
             const resp = await Axios.get(path);
-            const tweetResults = resp.data.statuses;
+            const tweetResults = resp.data.data;
             setTweets(tweetResults)
             setUserHasSearched(true)
         }
