@@ -22,7 +22,7 @@ class TwitterAPI():
             'media.fields': 'url,type'
             }
         self.user_params = {
-            'user.fields': 'profile_image_url,username'
+            'user.fields': 'profile_image_url,username,description'
         }
         
     def get_user_id(self, handle):
@@ -48,13 +48,10 @@ class TwitterAPI():
 
     def search_tweets_handle(self, handle):
         user_resp = self.get_user_id(handle)
-        print(f'user_resp: {user_resp}')
         user_id = user_resp['data']['id']
-        print(f'user_id: {user_id}')
         full_url = self.user_search_url + user_id + '/tweets'
         resp = self.session.get(full_url, params = self.search_params)
         data = resp.json()
-        print(f'data: {data}')
         return self.extract_images(data)
 
     def search_tweets_keyword(self, keyword):

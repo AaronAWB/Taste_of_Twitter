@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 import Axios from 'axios'
 import { renderTweets } from '../components/Tweet/utils'
 
@@ -33,14 +33,9 @@ const Search = () => {
         }
         catch(error) {
             console.log(error)
-            console.log(tweets.length)
         }
     }
 
-    useEffect(() => {
-        console.log(tweets)
-    }, [tweets])
-    
     const handleSubmit = (e) => {
         e.preventDefault();
         getTweets(userSearch);

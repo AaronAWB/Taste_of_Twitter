@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import Axios from 'axios'
 import UserDescription from '../components/UserDescription/UserDescription'
 import { renderTweets } from '../components/Tweet/utils'
@@ -36,6 +36,7 @@ const getRandomArrayItem = array => array[Math.floor(Math.random() * array.lengt
 const Random = () => {
 
     const [randomTweet, setRandomTweet] = useState([])
+    const [userInfo, setUserInfo] = useState({})
     const [userHasClicked, setUserHasClicked] = useState(false)
     const [apiError, setApiError] = useState("")
 
@@ -56,7 +57,7 @@ const Random = () => {
                 ? resp.data.data
                 : [];
             setUserHasClicked(true);
-            
+
             if (tweetResults.length > 0) {
                 const randomTweetResult = getRandomArrayItem(tweetResults);
                 setRandomTweet([randomTweetResult]);
@@ -68,6 +69,13 @@ const Random = () => {
             setApiError("An unexpected error occurred - please try again.")
         }  
     }
+
+    useEffect(() => {
+        console.log(randomTweet)
+        if (randomTweet[0]) {
+            console.log(randomTweet[0].author_id);
+        }
+    }, [randomTweet])
 
     const renderRandomTweet = () => {
         if (apiError) {
@@ -119,8 +127,8 @@ const Random = () => {
                     {renderRandomTweet()}
                 </div>
                 <div className='container row d-flex justify-content-md-center '>
-                {randomTweet.length > 0 && randomTweet[0]?.user ? (
-                    <UserDescription user={randomTweet[0].user} />
+                {randomTweet.length > 0 && randomTweet[0]?.author_id ? (
+                    <UserDescription author_id={randomTweet[0].author_id} />
                     ) : null}
                 </div>
             </div>    
