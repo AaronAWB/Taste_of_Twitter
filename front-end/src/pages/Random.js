@@ -40,13 +40,23 @@ const Random = () => {
     const [apiError, setApiError] = useState("")
 
     const getRandomTweet = async () => {
+        setApiError("");
         let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS).user_id}`
         let encodedPath = encodeURIComponent(path)
         try {
             const resp = await Axios.get(encodedPath);
-            const tweetResults = resp.data.data;
-            console.log(tweetResults)
+            
+            if (resp.data.status === 429) {
+                setApiError("Too many requests - please try again in 15 minutes.");
+                setUserHasClicked(true);
+                return;
+            }
+
+            const tweetResults = resp.data && resp.data.data 
+                ? resp.data.data
+                : [];
             setUserHasClicked(true);
+            
             if (tweetResults.length > 0) {
                 const randomTweetResult = getRandomArrayItem(tweetResults);
                 setRandomTweet([randomTweetResult]);
@@ -55,12 +65,7 @@ const Random = () => {
             }
         }
         catch(error) {
-            console.log(error)
-            if (error.response.status === 429) {
-                setApiError("Too many requests - please try again in 15 minutes.")
-            } else {
-                setApiError("An unexpected error occurred - please try again.")
-            }
+            setApiError("An unexpected error occurred - please try again.")
         }  
     }
 
