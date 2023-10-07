@@ -12,30 +12,58 @@ class TwitterAPI():
             'Accept': 'application/json',
             'Authorization': f'Bearer {os.getenv("API_BEARER_TOKEN")}'
             }
-        self.base_url = 'https://api.twitter.com/1.1/'
-        self.full_url = 'https://api.twitter.com/1.1/search/tweets.json?q='
+        self.id_url = 'https://api.twitter.com/2/users/by/username/'
+        self.user_search_url = 'https://api.twitter.com/2/users/'
+        self.keyword_search_url = 'https://api.twitter.com/2/tweets/search/recent?query='
         self.search_params = {
-            'count': '10',
-            'tweet_mode': 'extended'
+            'max_results': '10',
+            'tweet.fields': 'public_metrics,created_at',
+            'expansions': 'attachments.media_keys,author_id',
+            'media.fields': 'url,type'
             }
-        self.random_params = {
-            'tweet_mode': 'extended',
-            'result_type': 'mixed'
-            }
+        self.user_params = {
+            'user.fields': 'profile_image_url,username,description'
+        }
+        
+    def get_user_id(self, handle):
+        full_url = self.id_url + handle
+        resp = self.session.get(full_url)
+        return resp.json()
+    
+    def get_user_info(self, user_id):
+        full_url = self.user_search_url + user_id
+        resp = self.session.get(full_url, params = self.user_params)
+        return resp.json()
+    
+    def extract_images(self, data):
+        if 'data' in data and 'includes' in data and 'media' in data['includes']:
+            for tweet in data['data']:
+                if 'attachments' in tweet:
+                    media_keys = tweet['attachments'].get('media_keys', [])
+                    for media_key in media_keys:
+                        media_item = next((m for m in data['includes']['media'] if m['media_key'] == media_key), None)
+                        if media_item and media_item['type'] == 'photo':
+                            tweet['media_url'] = media_item['url']
+        return data
 
     def search_tweets_handle(self, handle):
-        url = self.full_url + 'from:' + handle
-        resp = self.session.get(url, params = self.search_params)
-        return resp.json()
+        user_resp = self.get_user_id(handle)
+        user_id = user_resp['data']['id']
+        full_url = self.user_search_url + user_id + '/tweets'
+        resp = self.session.get(full_url, params = self.search_params)
+        data = resp.json()
+        return self.extract_images(data)
 
     def search_tweets_keyword(self, keyword):
-        url = self.full_url + keyword
-        resp = self.session.get(url, params = self.search_params)
-        return resp.json()
+        full_url = self.keyword_search_url + keyword
+        resp = self.session.get(full_url, params = self.search_params)
+        data = resp.json()
+        return self.extract_images(data)
 
-    def get_random_tweet(self, handle):
-        url = self.full_url + 'from:' + handle
-        resp = self.session.get(url, params = self.random_params)
-        return resp.json()
-
+    def get_random_tweet(self, user_id):
+        full_url = full_url = self.user_search_url + user_id + '/tweets'
+        resp = self.session.get(full_url, params = self.search_params)
+        data = resp.json()
+        return self.extract_images(data)
+    
 twitter_api = TwitterAPI()
