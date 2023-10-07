@@ -37,6 +37,7 @@ const Random = () => {
 
     const [randomTweet, setRandomTweet] = useState([])
     const [userHasClicked, setUserHasClicked] = useState(false)
+    const [apiError, setApiError] = useState("")
 
     const getRandomTweet = async () => {
         let path = `/api/tweets/random/${getRandomArrayItem(FAVORITE_USERS).user_id}`
@@ -55,10 +56,22 @@ const Random = () => {
         }
         catch(error) {
             console.log(error)
+            if (error.response.status === 429) {
+                setApiError("Too many requests - please try again in 15 minutes.")
+            } else {
+                setApiError("An unexpected error occurred - please try again.")
+            }
         }  
     }
 
     const renderRandomTweet = () => {
+        if (apiError) {
+            return (
+                <div className='alert alert-danger shadow-lg mt-4' role='alert'>
+                    {apiError}
+                </div>
+            )
+        }
         if (randomTweet.length === 0 && userHasClicked === true) {
             return (
                 <div className='alert alert-info shadow-lg mt-4' role='alert'>

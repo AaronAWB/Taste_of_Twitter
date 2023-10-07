@@ -1,5 +1,5 @@
 import React from 'react'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Axios from 'axios'
 import { renderTweets } from '../components/Tweet/utils'
 
@@ -25,14 +25,21 @@ const Search = () => {
       
         try {
             const resp = await Axios.get(path);
-            const tweetResults = resp.data.data;
+            const tweetResults = resp.data && resp.data.data 
+                ? resp.data.data 
+                : [];
             setTweets(tweetResults)
             setUserHasSearched(true)
         }
         catch(error) {
             console.log(error)
+            console.log(tweets.length)
         }
     }
+
+    useEffect(() => {
+        console.log(tweets)
+    }, [tweets])
     
     const handleSubmit = (e) => {
         e.preventDefault();
